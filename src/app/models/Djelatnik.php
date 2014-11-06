@@ -13,7 +13,7 @@ class Djelatnik extends Eloquent implements UserInterface {
 
 	public function getAuthIdentifier()
 	{
-	    return $this['sifDjelatnik'];
+	    return getKey();
 	}
 
 	/**

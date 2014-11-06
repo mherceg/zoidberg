@@ -12,6 +12,7 @@ class CreateDatabase extends Migration {
 	 */
 	public function up()
 	{
+		echo("ministarstvo1\n");
 		Schema::create('ministarstvo', function($table)
 		{
 			$table->increments('sifMin');
@@ -21,98 +22,157 @@ class CreateDatabase extends Migration {
 			$table->string('emailTajnistvo', 200);
 			$table->binary('slikaMin');
 		});
+		
+		echo("funkcija1\n");
 		Schema::create('funkcija', function($table)
 		{
 			$table->integer('sifMin')->unsigned();
-			$table->foreign('sifMin')->references('sifMin')->on('ministarstvo');$table->string('imeMin', 100);
 			$table->string('funkcijaDjelatnik', 100);
 			$table->primary(array('sifMin', 'funkcijaDjelatnik'));
 		});
+		echo("funkcija2\n");
+		Schema::table('funkcija', function($table)
+		{
+			$table->foreign('sifMin')->references('sifMin')->on('ministarstvo');
+		});
+		
+		echo("djelatnik1\n");
 		Schema::create('djelatnik', function($table)
 		{
 			$table->integer('sifMin')->unsigned();
-			$table->foreign('sifMin')->references('sifMin')->on('ministarstvo');$table->string('imeMin', 100);
 			$table->increments('sifDjelatnik');
 			$table->string('imeDjelatnik', 100);
 			$table->string('prezimeDjelatnik', 100);
 			$table->string('titulaDjelatnik', 30);
-			$table->string('emailDjelatnik', 200);
-			$table->string('lozinkaDjelatnik', 30);
+			$table->string('email', 200);
+			$table->string('password', 30);
 			$table->enum('dozvolaPristupa', array('0', '1', '2'))->default('0');
 			$table->string('funkcijaDjelatnik', 100);
-			$table->foreign('funkcijaDjelatnik')->references('funkcijaDjelatnik')->on('funkcija');
-			$table->primary('sifMin');
+			//$table->primary(array('sifMin', 'sifDjelatnik'));
 		});
+
+
+		echo("djelatnik2\n");
+		Schema::table('djelatnik', function($table)
+		{
+			//$table->primary(array('sifMin', 'sifDjelatnik'));
+			//$table->foreign('sifMin')->references('sifMin')->on('ministarstvo');
+			//$table->foreign('funkcijaDjelatnik')->references('funkcijaDjelatnik')->on('funkcija');
+		});
+		
+		echo("vijesti1\n");
 		Schema::create('vijest', function($table)
 		{
 			$table->integer('sifMin')->unsigned();
-			$table->foreign('sifMin')->references('sifMin')->on('ministarstvo');
 			$table->increments('sifVijest');
 			$table->string('naslovVijest', 100);
 			$table->text('tekstVijest');
 			$table->timestamp('datumVijest');
 			$table->integer('sifDjelatnik')->unsigned();
-			$table->foreign('sifDjelatnik')->references('sifDjelatnik')->on('djelatnik');
-			$table->primary('sifMin');
+			//$table->primary('sifMin');
 		});
+		echo("vijesti2\n");
+		Schema::table('vijest', function($table)
+		{
+			$table->foreign('sifMin')->references('sifMin')->on('ministarstvo');
+			//$table->foreign('sifDjelatnik')->references('sifDjelatnik')->on('djelatnik');
+		});
+		
+		echo("povijest1\n");
 		Schema::create('povijest', function($table)
 		{
 			$table->integer('sifMin')->unsigned();
-			$table->foreign('sifMin')->references('sifMin')->on('ministarstvo');
 			$table->string('naslovOdlomak', 100);
 			$table->text('tekstPovijest');
 			$table->primary(array('sifMin', 'naslovOdlomak'));
 		});
+		echo("povijest2\n");
+		Schema::table('povijest', function($table)
+		{
+			$table->foreign('sifMin')->references('sifMin')->on('ministarstvo');
+		});
+		
+		echo("slika1\n");
 		Schema::create('slika', function($table)
 		{
 			$table->integer('sifMin')->unsigned();
-			$table->foreign('sifMin')->references('sifMin')->on('ministarstvo');$table->string('imeMin', 100);
 			$table->increments('brSlika');
 			$table->binary('slikaPov');
-			$table->primary('sifMin');
+			//$table->primary('sifMin');
 		});
+		echo("slika2\n");
+		Schema::table('slika', function($table)
+		{
+			$table->foreign('sifMin')->references('sifMin')->on('ministarstvo');
+		});
+		
+		echo("kategorija1\n");
 		Schema::create('kategorija', function($table)
 		{
 			$table->integer('sifMin')->unsigned();
-			$table->foreign('sifMin')->references('sifMin')->on('ministarstvo');$table->string('imeMin', 100);
 			$table->string('imeKategorija', 100);
 			$table->primary(array('sifMin', 'imeKategorija'));
 		});
+		echo("kategorija2\n");
+		Schema::table('kategorija', function($table)
+		{
+			$table->foreign('sifMin')->references('sifMin')->on('ministarstvo');
+		});
+		
+		echo("podkategorija1\n");
 		Schema::create('podkategorija', function($table)
 		{
 			$table->integer('sifMin')->unsigned();
-			$table->foreign('sifMin')->references('sifMin')->on('ministarstvo');$table->string('imeMin', 100);
 			$table->string('imePodkategorija', 100);
 			$table->string('imeKategorija', 100);
-			$table->foreign('imeKategorija')->references('imeKategorija')->on('kategorija');
 			$table->primary(array('sifMin', 'imePodkategorija'));
 		});
+		echo("podkategorija2\n");
+		Schema::table('podkategorija', function($table)
+		{
+			$table->foreign('sifMin')->references('sifMin')->on('ministarstvo');
+			//$table->foreign('imeKategorija')->references('imeKategorija')->on('kategorija');
+		});
+		
+		echo("dokument1\n");
 		Schema::create('dokument', function($table)
 		{
 			$table->integer('sifMin')->unsigned();
-			$table->foreign('sifMin')->references('sifMin')->on('ministarstvo');$table->string('imeMin', 100);
 			$table->increments('sifDokument');
 			$table->string('imeKategorija', 100);
-			$table->foreign('imeKategorija')->references('imeKategorija')->on('kategorija');
 			$table->string('imePodkategorija', 100)->nullable();
-			$table->foreign('imePodkategorija')->references('imePodkategorija')->on('podkategorija');
 			$table->string('nazivDokument', 100);
 			$table->string('tipDokument', 20);
 			$table->text('opisDokument');
 			$table->enum('oznakaPovjerljivosti', array('0', '1', '2'))->default('2');
 			$table->binary('dokumentMin');
-			$table->primary('sifMin');
+			//$table->primary('sifMin');
 		});
+		echo("dokumnet2\n");
+		Schema::table('dokument', function($table)
+		{
+			$table->foreign('sifMin')->references('sifMin')->on('ministarstvo');
+			//$table->foreign('imeKategorija')->references('imeKategorija')->on('kategorija');
+			//$table->foreign('imePodkategorija')->references('imePodkategorija')->on('podkategorija');
+		});
+		
+		echo("akcija1\n");
 		Schema::create('akcija', function($table)
 		{
 			$table->integer('sifMin')->unsigned();
-			$table->foreign('sifMin')->references('sifMin')->on('ministarstvo');$table->string('imeMin', 100);
 			$table->increments('sifAkcija');
 			$table->string('naslovAkcija', 100);
-			$table->tekst('opisAkcija');
+			$table->text('opisAkcija');
 			$table->integer('maxBrPrijava')->unsigned();
-			$table->primary('sifMin');
+			//$table->primary('sifMin');
 		});
+		echo("akcija2\n");
+		Schema::table('akcija', function($table)
+		{
+			$table->foreign('sifMin')->references('sifMin')->on('ministarstvo');
+		});
+		
+		echo("osoba1\n");
 		Schema::create('osoba', function($table)
 		{
 			$table->increments('sifOsoba');
@@ -121,79 +181,120 @@ class CreateDatabase extends Migration {
 			$table->string('emailOsoba', 200)->unique();
 			$table->string('OIB', 11)->nullable();
 		});
+		
+		echo("kategorija_upita\n");
 		Schema::create('kategorija_upita', function($table)
 		{
 			$table->integer('sifMin')->unsigned();
-			$table->foreign('sifMin')->references('sifMin')->on('ministarstvo');$table->string('imeMin', 100);
 			$table->string('kategUpit', 100);
 			$table->primary(array('sifMin', 'kategUpit'));
 		});
+		Schema::table('kategorija_upita', function($table)
+		{
+			$table->foreign('sifMin')->references('sifMin')->on('ministarstvo');
+		});
+		
+		echo("upit_gradjana1\n");
 		Schema::create('upit_gradjana', function($table)
 		{
 			$table->integer('sifMin')->unsigned();
-			$table->foreign('sifMin')->references('sifMin')->on('ministarstvo');$table->string('imeMin', 100);
 			$table->increments('sifUpit');
 			$table->string('emailOsoba', 200);
-			$table->foreign('emailOsoba')->references('emailOsoba')->on('osoba');
 			$table->string('naslovUpit', 50);
 			$table->text('tekstUpit');
 			$table->timestamp('vrijemeUpit');
 			$table->string('kategUpit', 100);
-			$table->foreign('kategUpit')->references('kategUpit')->on('kategorija_upita');
-			$table->primary('sifMin');
+			//$table->primary('sifMin');
 		});
+		echo("upit_gradjana2\n");
+		Schema::table('upit_gradjana', function($table)
+		{
+			$table->foreign('sifMin')->references('sifMin')->on('ministarstvo');
+			$table->foreign('emailOsoba')->references('emailOsoba')->on('osoba');
+			//$table->foreign('kategUpit')->references('kategUpit')->on('kategorija_upita');
+		});
+		
+		echo("upit_gradjana_djelatniku1\n");
 		Schema::create('upit_gradjana_djelatniku', function($table)
 		{
 			$table->integer('sifMin')->unsigned();
-			$table->foreign('sifMin')->references('sifMin')->on('ministarstvo');$table->string('imeMin', 100);
 			$table->integer('sifUpit')->unsigned();
-			$table->foreign('sifUpit')->references('sifUpit')->on('upit_gradjana');
 			$table->integer('sifDjelatnik')->unsigned();
-			$table->foreign('sifDjelatnik')->references('sifDjelatnik')->on('djelatnik');
 			$table->primary(array('sifMin', 'sifUpit', 'sifDjelatnik'));
 		});
+		echo("upit_gradjana_djelatniku2\n");
+		Schema::table('upit_gradjana_djelatniku', function($table)
+		{
+			$table->foreign('sifMin')->references('sifMin')->on('ministarstvo');
+			$table->foreign('sifUpit')->references('sifUpit')->on('upit_gradjana');
+			$table->foreign('sifDjelatnik')->references('sifDjelatnik')->on('djelatnik');
+		});
+		
+		echo("privitak1\n");
 		Schema::create('privitak', function($table)
 		{
 			$table->integer('sifMin')->unsigned();
-			$table->foreign('sifMin')->references('sifMin')->on('ministarstvo');$table->string('imeMin', 100);
 			$table->increments('sifPrivitak');
 			$table->binary('privitakPoruci');
-			$table->primary('sifMin');
+			//$table->primary('sifMin');
 		});
+		echo("privitak2\n");
+		Schema::table('privitak', function($table)
+		{
+			$table->foreign('sifMin')->references('sifMin')->on('ministarstvo');
+		});
+		
+		echo("poruka_djelatniku1\n");
 		Schema::create('poruka_djelatniku', function($table)
 		{
 			$table->integer('sifMin')->unsigned();
-			$table->foreign('sifMin')->references('sifMin')->on('ministarstvo');$table->string('imeMin', 100);
 			$table->increments('sifPoruka');
 			$table->string('naslovPoruka', 100);
 			$table->text('tekstPoruka');
 			$table->timestamp('vrijemePoruka');
 			$table->integer('sifDjelatnik')->unsigned();
-			$table->foreign('sifDjelatnik')->references('sifDjelatnik')->on('djelatnik');
 			$table->integer('sifPrivitak')->unsigned()->nullable();
-			$table->foreign('sifPrivitak')->references('sifPrivitak')->on('privitak');
-			$table->primary('sifMin');
+			//$table->primary('sifMin');
 		});
-		Schema::create('poruka_djelatnika_djelatniku', function($table)
+		echo("poruka_djelatniku2\n");
+		Schema::table('poruka_djelatniku', function($table)
+		{
+			$table->foreign('sifMin')->references('sifMin')->on('ministarstvo');
+			$table->foreign('sifDjelatnik')->references('sifDjelatnik')->on('djelatnik');
+			$table->foreign('sifPrivitak')->references('sifPrivitak')->on('privitak');
+		});
+		
+		echo("pdd\n");
+		Schema::create('pdd', function($table)
 		{
 			$table->integer('sifMin')->unsigned();
-			$table->foreign('sifMin')->references('sifMin')->on('ministarstvo');$table->string('imeMin', 100);
 			$table->integer('sifPoruka')->unsigned();
-			$table->foreign('sifPoruka')->references('sifPoruka')->on('poruka_djelatniku');
 			$table->integer('sifDjelatnik')->unsigned();
-			$table->foreign('sifDjelatnik')->references('sifDjelatnik')->on('djelatnik');
 			$table->primary(array('sifMin', 'sifPoruka', 'sifDjelatnik'));
 		});
+		echo("pdd2\n");
+		Schema::table('pdd', function($table)
+		{
+			$table->foreign('sifMin')->references('sifMin')->on('ministarstvo');
+			$table->foreign('sifPoruka')->references('sifPoruka')->on('poruka_djelatniku');
+			$table->foreign('sifDjelatnik')->references('sifDjelatnik')->on('djelatnik');
+		});
+		
+		echo("280");
 		Schema::create('prijavljuje', function($table)
 		{
 			$table->integer('sifMin')->unsigned();
-			$table->foreign('sifMin')->references('sifMin')->on('ministarstvo');$table->string('imeMin', 100);
 			$table->integer('sifAkcija')->unsigned();
-			$table->foreign('sifAkcija')->references('sifAkcija')->on('akcija');
 			$table->integer('sifOsoba')->unsigned();
-			$table->foreign('sifOsoba')->references('sifOsoba')->on('osoba');$table->string('imeMin', 100);
 			$table->timestamp('vrijemePrijave');
 			$table->primary(array('sifMin', 'sifAkcija', 'sifOsoba'));
+		});
+		echo("289");
+		Schema::table('prijavljuje', function($table)
+		{
+			$table->foreign('sifMin')->references('sifMin')->on('ministarstvo');
+			$table->foreign('sifAkcija')->references('sifAkcija')->on('akcija');
+			$table->foreign('sifOsoba')->references('sifOsoba')->on('osoba');
 		});
 	}
 
@@ -205,7 +306,7 @@ class CreateDatabase extends Migration {
 	public function down()
 	{
 		Schema::drop('prijavljuje');
-		Schema::drop('poruka_djelatnika_djelatniku');
+		Schema::drop('pdd');
 		Schema::drop('poruka_djelatniku');
 		Schema::drop('privitak');
 		Schema::drop('upit_gradjana_djelatniku');
