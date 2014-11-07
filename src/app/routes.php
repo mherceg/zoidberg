@@ -18,11 +18,11 @@ Route::get('/tu', function() {
 	$d['imeDjelatnik'] = "Testko";
 	$d['prezimeDjelatnik'] = "Tesković";
 	$d['titulaDjelatnik'] = "Predcjednik doktor svemirski pionir";
-	$d['emailDjelatnik'] = "pionir@svemir.all";
-	$d['lozinkaDjelatnik'] = "123456789";
+	$d['email'] = "pionir@svemir.all";
+	$d['password'] = "123456789";
 	$d['dozvolaPristupa'] = 0;
 	$d['funkcijaDjelatnik'] = "Time Lord";
-//	$d->save();
+	$d->save();
 
 	return "Not saved";
 });
@@ -30,16 +30,16 @@ Route::get('/tu', function() {
 
 Route::get('/testlogin', function() {
 	$cred = array(
-		'emailDjelatnik' => "pionir@svemir.all",
+		'email' => "pionir@svemir.all",
 		'password' => "123456789"
 	);
 
 	$a = "15";
 
-	if(Auth::validate($cred))
-        $a = "20";
+	$a = Auth::validate($cred);
+        //$a = "20";
 
-	return $a;
+	return var_dump($a);
 });
 
 
