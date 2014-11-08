@@ -24,4 +24,8 @@ class User extends Eloquent implements UserInterface {
 	 */
 	protected $hidden = array('password', 'remember_token');
 
+    public function news() {
+        return $this->hasMany('Vijesti', 'autor_id');
+    }
+
 }

@@ -23,7 +23,7 @@ class HomeController extends BaseController {
 	{
 		$this->basicData();
 
-		$vijesti = DB::table('vijesti')->join('users', 'users.id', '=', 'vijesti.autor_id')->orderBy('datum', 'desc')->get();
+		$vijesti = Vijesti::orderBy('datum')->get();
 		$this->passed_data['vijesti'] = $vijesti;
 
 		$this->premakeCleanup();
