@@ -2,7 +2,7 @@
 
 
 class PrivatnePoruke extends Eloquent {
-	rotected $table = 'privatne_poruke';
+	protected $table = 'privatne_poruke';
 	public $timestamps = false;
 
 	/**
