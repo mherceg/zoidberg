@@ -1,22 +1,25 @@
 @extends('main')
 
-<?php
-	View::share(array('title' => 'Home', 'ministarstvo' => "wot"));
+<?php use Ciconia\Ciconia; 
+    $ciconia = new Ciconia();
 ?>
 
 @section('mainbar')
-<section class="section">
+            @foreach($vijesti as $vijest)
+                @if($vijest->objavljeno)
+                <section class="section">
                     <div class="section-inner">                        
-                        <h6>Autor: Zoidberg | Datum: 01.01.3001.</h6>
-                        <h2 class="heading">Naslov</h2>
-
+                        <h6>Autor: {{ $vijest->prezime }}, {{ $vijest->ime }} | Datum: {{ date("d.m.Y. - H:i", strtotime($vijest->datum)) }}</h6>
+                        <h2 class="heading">{{ $vijest->naslov }}</h2>
 
                         <div class="content">
-                            Content
+                            {{ $ciconia->render($vijest->sadrzaj) }}
                         </div>
 
                     </div>
                 </section>
+                @endif
+            @endforeach
 @stop
 
 @section('sidebar')

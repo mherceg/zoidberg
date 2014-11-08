@@ -12,31 +12,41 @@
 */
 
 Route::controller('/login', 'LoginController');
+Route::controller('/home', 'HomeController');
 
 Route::get('/tu', function() {
-	$d = new Djelatnik();
-	$d['imeDjelatnik'] = "Testko";
-	$d['prezimeDjelatnik'] = "Tesković";
-	$d['titulaDjelatnik'] = "Predcjednik doktor svemirski pionir";
-	$d['email'] = "pionir@svemir.all";
-	$d['password'] = "123456789";
-	$d['dozvolaPristupa'] = 0;
-	$d['funkcijaDjelatnik'] = "Time Lord";
-	$d->save();
+	$d = new User();
 
-	return "Not saved";
+	$d->email = "pionir@svemir.all";
+	$d->password = Hash::make("a");
+	$d->ime = "Đuro";
+	$d->prezime = "čćžšđ";
+	$d->tip = 1;
+	$d->funkcija = "Time Lord";
+	$d->d_dozvola = -1;
+	$d->aktiviran = true;
+	try {
+		$d->save();
+	}
+	catch(Exception $e) {
+		return var_dump($e);
+	}
+	return "Saved";
 });
 
 
 Route::get('/testlogin', function() {
+
+	$b = User::all();
+
 	$cred = array(
 		'email' => "pionir@svemir.all",
-		'password' => "123456789"
+		'password' => "a"
 	);
 
 	$a = "15";
 
-	$a = Auth::validate($cred);
+	$a = Auth::once($cred);
         //$a = "20";
 
 	return var_dump($a);
@@ -47,9 +57,10 @@ Route::get('/main', function() {
 	return View::make('main');
 });
 
+/*
 Route::get('/home', function() {
 	return View::make('home');
-});
+});*/
 
 Route::get('/', function()
 {

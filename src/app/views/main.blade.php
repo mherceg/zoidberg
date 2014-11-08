@@ -34,8 +34,8 @@
         <div class="container">                       
             <img class="profile-image img-responsive pull-left" src="assets/images/zoidberg_grb.png" width="150" height="150" />
             <div class="profile-content">
-                <h1 class="name">Ministarstvo interstelarnog dostavljanja paketa</h1>
-                <h2 class="desc">Robonia</h2>   
+                <h1 class="name">{{$ministarstvo}}</h1>
+                <h2 class="desc">{{$podnaziv}}</h2>   
 
             </div><!--//profile-->
         </div><!--//container-->

@@ -2,22 +2,36 @@
 
 class HomeController extends BaseController {
 
-	/*
-	|--------------------------------------------------------------------------
-	| Default Home Controller
-	|--------------------------------------------------------------------------
-	|
-	| You may wish to use controllers instead of, or in addition to, Closure
-	| based routes. That's great! Here is an example controller method to
-	| get you started. To route to this controller, just add the route:
-	|
-	|	Route::get('/', 'HomeController@showWelcome');
-	|
-	*/
+	private $passed_data = array();
 
-	public function showWelcome()
+	private function basicData() {
+		$op = OsnovniPodaci::find(1);//podnaziv
+
+		$this->passed_data['ministarstvo'] = "$op->naziv";
+		$this->passed_data['podnaziv'] = "$op->podnaziv";
+
+		$this->passed_data['title'] = "Home";
+
+	}
+
+	private function premakeCleanup()
 	{
-		return View::make('hello');
+		View::share($this->passed_data);	
+	}
+
+	public function getIndex()
+	{
+		$this->basicData();
+
+		$vijesti = DB::table('vijesti')->join('users', 'users.id', '=', 'vijesti.autor_id')->orderBy('datum', 'desc')->get();
+		$this->passed_data['vijesti'] = $vijesti;
+
+		$this->premakeCleanup();
+		return View::make('home');
+	}
+
+	public function postIndex() {
+		return $this->getIndex();
 	}
 
 }

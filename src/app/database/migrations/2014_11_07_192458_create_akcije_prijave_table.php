@@ -17,8 +17,8 @@ class CreateAkcijePrijaveTable extends Migration {
 			$table->integer('id_akcije')->unsigned();
 			$table->string('ime');
 			$table->text('prezime');
-			$table->string('email');
-			$table->string('oib'); //vodece nule
+			$table->string('email')->unique();
+			$table->string('oib')->unique(); //vodece nule
 			$table->dateTime('vrijeme');
 		});
 	}
