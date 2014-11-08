@@ -58,3 +58,5 @@ Route::get('/testlogin', function() {
 Route::get('/main', function() {
 	return View::make('main');
 });
+
+Route::get('/podaci', 'InfoController@index');

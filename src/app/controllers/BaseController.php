@@ -1,6 +1,6 @@
 <?php
 
-class BaseController extends Controller {
+abstract class BaseController extends Controller {
 
 	/**
 	 * Setup the layout used by the controller.
@@ -9,10 +9,23 @@ class BaseController extends Controller {
 	 */
 	protected function setupLayout()
 	{
+        $this->loadBasicData();
 		if ( ! is_null($this->layout))
 		{
 			$this->layout = View::make($this->layout);
 		}
 	}
+
+    private function loadBasicData() {
+        $op = OsnovniPodaci::find(1);//podnaziv
+        $data = array(
+            'ministarstvo' => $op->naziv,
+            'podnaziv' => $op->podnaziv,
+            'title' => $this->getPageTitle()
+        );
+        View::share($data);
+    }
+
+    abstract public function getPageTitle();
 
 }
