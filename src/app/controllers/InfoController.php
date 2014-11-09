@@ -3,7 +3,7 @@
 
 class InfoController extends BaseController{
 
-    public function index() {
+    public function getIndex() {
         return View::make('info.index');
     }
 

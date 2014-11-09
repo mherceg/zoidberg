@@ -13,8 +13,9 @@
 
 Route::controller('/login', 'LoginController');
 Route::controller('/home', 'HomeController');
+Route::controller('/podaci', 'InfoController');
 
-//Route::get('/', 'HomeController@getIndex');
+Route::get('/', 'HomeController@getIndex');
 
 Route::get('/tu', function() {
 	$d = new User();
@@ -53,14 +54,3 @@ Route::get('/testlogin', function() {
 
 	return var_dump($a);
 });
-
-
-Route::get('/main', function() {
-	return View::make('main', array(
-		'title' => "Naziv",
-		'ministarstvo' => "ministarstvo",
-		'podnaziv' => "podnaziv"
-	));
-});
-
-Route::get('/podaci', 'InfoController@index');
