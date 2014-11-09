@@ -15,7 +15,7 @@ class OsnovniPodaciSeeder extends \Illuminate\Database\Seeder {
             'telefon' => 'u izradi',
             'email' => 'zoidberg_pex@gmail.com',
             'emblem_lokacija' => 'assets/images/zoidberg_grb.png',
-            'slika_lokacija' => ''
+            'slika_lokacija' => 'assets/images/planet-express-building.png'
         ));
 
     }
