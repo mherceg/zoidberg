@@ -17,7 +17,7 @@ abstract class BaseController extends Controller {
 	}
 
     private function loadBasicData() {
-        $op = OsnovniPodaci::find(1);//podnaziv
+        $op = OsnovniPodaci::find(1);
         $data = array(
             'ministarstvo' => $op->naziv,
             'podnaziv' => $op->podnaziv,

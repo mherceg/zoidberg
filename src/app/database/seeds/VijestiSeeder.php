@@ -14,7 +14,7 @@ class VijestiSeeder extends \Illuminate\Database\Seeder
 
         $defaultAuthor = User::create(array(
             'email' => 'default@ministarstvo.hr',
-            'password' => 'ovonitkonecepogoditi',
+            'password' => Hash::make('ovonitkonecepogoditi'),
             'ime' => 'Difolto',
             'prezime' => 'Difoltich',
             'tip' => 0,
