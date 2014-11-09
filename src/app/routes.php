@@ -14,6 +14,8 @@
 Route::controller('/login', 'LoginController');
 Route::controller('/home', 'HomeController');
 
+Route::get('/', 'HomeController@getIndex');
+
 Route::get('/tu', function() {
 	$d = new User();
 
@@ -57,12 +59,4 @@ Route::get('/main', function() {
 	return View::make('main');
 });
 
-/*
-Route::get('/home', function() {
-	return View::make('home');
-});*/
-
-Route::get('/', function()
-{
-	return View::make('hello');
-});
+Route::get('/podaci', 'InfoController@index');

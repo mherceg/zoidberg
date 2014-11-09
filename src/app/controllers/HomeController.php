@@ -4,30 +4,15 @@ class HomeController extends BaseController {
 
 	private $passed_data = array();
 
-	private function basicData() {
-		$op = OsnovniPodaci::find(1);//podnaziv
-
-		$this->passed_data['ministarstvo'] = "$op->naziv";
-		$this->passed_data['podnaziv'] = "$op->podnaziv";
-
-		$this->passed_data['title'] = "Home";
-
-	}
-
-	private function premakeCleanup()
-	{
-		View::share($this->passed_data);	
-	}
+    public function getPageTitle() {
+        return "Home";
+    }
 
 	public function getIndex()
 	{
-		$this->basicData();
-
-		$vijesti = DB::table('vijesti')->join('users', 'users.id', '=', 'vijesti.autor_id')->orderBy('datum', 'desc')->get();
-		$this->passed_data['vijesti'] = $vijesti;
-
-		$this->premakeCleanup();
-		return View::make('home');
+		return View::make('home', array(
+            'vijesti' => Vijesti::orderBy('datum')->get()
+        ));
 	}
 
 	public function postIndex() {
