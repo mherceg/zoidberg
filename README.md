@@ -16,10 +16,13 @@ Dodala shemu baze podataka
 Dodala dio gotove dokumentacije
 
 ### 1.11.2014., D
-Novosti oko baze. Da bi mogli započeti s radom, i da bi smanjili probleme s "mojConfig-tvojConfig", napravite si (preko phpmyadmina) bazu "testmin". Za pristup bazi za sad koristimo usera root, jer eto.. možemo.
-Nakon toga pokrenite iz svog shella "php artisan migrate". To bi vam trebalo ići po svim fileovima u migracijama i stvoriti odgovarajuće tablice kako je tamo već opisano. Ukoliko dođe do nekakvih promjena u bazi, Lucija će napraviti novu migraciju, svi ćemo pokrenuti php artisan migrate ponovo, i onda će taj sustav već shvatit šta imate/nemate i pokrpat stvari. U teoriji.
+Novosti oko baze. Da bi mogli zapoÄŤeti s radom, i da bi smanjili probleme s "mojConfig-tvojConfig", napravite si (preko phpmyadmina) bazu "testmin". Za pristup bazi za sad koristimo usera root, jer eto.. moĹľemo.
+Nakon toga pokrenite iz svog shella "php artisan migrate". To bi vam trebalo iÄ‡i po svim fileovima u migracijama i stvoriti odgovarajuÄ‡e tablice kako je tamo veÄ‡ opisano. Ukoliko doÄ‘e do nekakvih promjena u bazi, Lucija Ä‡e napraviti novu migraciju, svi Ä‡emo pokrenuti php artisan migrate ponovo, i onda Ä‡e taj sustav veÄ‡ shvatit Ĺˇta imate/nemate i pokrpat stvari. U teoriji.
 
-Ovo je za sad neki test build, jer početna migracija ne radi još kako treba. Bit će pokrpano Uskoro™.
+Ovo je za sad neki test build, jer poÄŤetna migracija ne radi joĹˇ kako treba. Bit Ä‡e pokrpano Uskoroâ„˘.
 
 ### 4.11.2014., M
-dodan glavni file u koji �e se mergati sva dokumentacija koja pristi�e, uskoro novi zadaci za ekipu s dokumentacije :P
+dodan glavni file u koji će se mergati sva dokumentacija koja pristiže, uskoro novi zadaci za ekipu s dokumentacije :P
+
+### 10.11.2014., J
+dodao obrasce uporabe od 1 do 8, dodao njihove dijagrame osim za obrazac broj 7, za koji nisam siguran kako bih ga nacrtao. Isto tako, nisam siguran ni za dijagram za 1. obrazac, slican problem, razlika u nacinu rada kod djelatnika i kod gradjanina
