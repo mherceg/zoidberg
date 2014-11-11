@@ -14,6 +14,7 @@
 Route::controller('/login', 'LoginController');
 Route::controller('/home', 'HomeController');
 Route::controller('/podaci', 'InfoController');
+Route::controller('/vijesti', 'NewsController');
 
 Route::get('/', 'HomeController@getIndex');
 
