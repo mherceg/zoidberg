@@ -11,7 +11,7 @@ class HomeController extends BaseController {
 	public function getIndex()
 	{
 		return View::make('home', array(
-            'vijesti' => Vijesti::orderBy('datum')->get()
+            'vijesti' => Vijesti::orderBy('datum', 'desc')->get()
         ));
 	}
 
