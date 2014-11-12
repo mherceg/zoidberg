@@ -1,0 +1,7 @@
+trebalo bi se dodatno prouèiti još UC_07, nisam baš u potpunosti sigurna da bi to tako trebalo izgledati,
+u svakom sluèaju treba sve detaljno još pregledati, u okvir nisam umetala slike i one opise koji idu ispod
+njih jer to još nije sigurno da je u potpunosti toèno. ako æete neto mijenjati po okviru, de pliz se potrudite 
+zadržati formate u kojima je, nemojte varati i kopi-pejstati bezveze misleæi da vas neæu uhvatiti u tome :P
+
+na kraju krajeva, ovo je samo okvir, možda neki dijagrami se mogu spojiti u jedan ili u potpunosti ukloniti,
+to æe se sve još vidjeti kada se ozbiljno sjedne za to i pogleda i pita demosa za mišljenje.
