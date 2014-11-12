@@ -26,6 +26,3 @@ dodan glavni file u koji će se mergati sva dokumentacija koja pristiže, uskoro
 
 ### 10.11.2014., J
 dodao obrasce uporabe od 1 do 8, dodao njihove dijagrame osim za obrazac broj 7, za koji nisam siguran kako bih ga nacrtao. Isto tako, nisam siguran ni za dijagram za 1. obrazac, slican problem, razlika u nacinu rada kod djelatnika i kod gradjanina
-
-### 12.11.2014., M
-procackala po okviru gotove dokumentacije, dodala napomenu, uredila format J-ovih obrazaca
