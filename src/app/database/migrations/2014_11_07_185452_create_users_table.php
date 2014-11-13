@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration {
 			$table->string('funkcija');
 			$table->integer('d_dozvola')->unsigned();
 			$table->boolean('aktiviran');
+			$table->string('oib')->unique();
 		});
 	}
 
