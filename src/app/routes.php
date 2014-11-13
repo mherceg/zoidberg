@@ -16,7 +16,18 @@ Route::controller('/home', 'HomeController');
 Route::controller('/podaci', 'InfoController');
 Route::controller('/vijesti', 'NewsController');
 
-Route::get('/', 'HomeController@getIndex');
+Route::get('/admin', function() {
+	View::share(array(
+		'title' => "Admin Panel",
+		'ministarstvo' => "wut"
+	));
+
+	return View::make('admin.main');
+});
+
+Route::get('/', function() {
+	return Redirect::to('/home');
+});
 
 Route::get('/tu', function() {
 	$d = new User();

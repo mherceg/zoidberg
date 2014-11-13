@@ -4,7 +4,7 @@
 class NewsController extends BaseController
 {
 
-    public function getPageTitle()
+    public function retrivePageTitle()
     {
         return "Vijesti";
     }
@@ -21,13 +21,13 @@ class NewsController extends BaseController
 
         Vijesti::create(array(
             // TODO fill with active user id
-            'autor_id' => $user->id,
+            'autor_id' => Auth::id(),
             'objavljeno' => true,
             'naslov' => $forma['naslov'],
             'sadrzaj' => $forma['sadrzaj'],
             'datum' => new DateTime()
         ));
 
-        return Redirect::action('HomeController@getIndex');
+        return Redirect::to('/home');
     }
 }

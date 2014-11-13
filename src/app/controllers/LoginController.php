@@ -7,7 +7,7 @@ class LoginController extends BaseController {
 		return View::make('login');
 	}
 
-    public function getPageTitle() {
+    public function retrivePageTitle() {
         return "Login";
     }
 

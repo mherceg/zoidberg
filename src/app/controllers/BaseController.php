@@ -21,11 +21,11 @@ abstract class BaseController extends Controller {
         $data = array(
             'ministarstvo' => $op->naziv,
             'podnaziv' => $op->podnaziv,
-            'title' => $this->getPageTitle()
+            'title' => $this->retrivePageTitle()
         );
         View::share($data);
     }
 
-    abstract public function getPageTitle();
+    abstract public function retrivePageTitle();
 
 }

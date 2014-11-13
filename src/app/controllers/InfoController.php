@@ -10,7 +10,7 @@ class InfoController extends BaseController
         return View::make('info.index', array("podaci" => $podaci));
     }
 
-    public function getPageTitle()
+    public function retrivePageTitle()
     {
         return "Osnovni podaci";
     }

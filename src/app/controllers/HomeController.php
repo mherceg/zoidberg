@@ -4,7 +4,7 @@ class HomeController extends BaseController {
 
 	private $passed_data = array();
 
-    public function getPageTitle() {
+    public function retrivePageTitle() {
         return "Home";
     }
 

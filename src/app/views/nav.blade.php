@@ -3,8 +3,8 @@
                         <h2 class="heading">Navigacija</h2>
                         <div class="content">
                             <ul class="list-unstyled">
-                                <li><a href="{{ action('HomeController@getIndex') }}"><i class="fa fa-home"></i> Početna stranica i vijesti</a></li>
-                                <li><a href="{{ action('InfoController@getIndex') }}"><i class="fa fa-info-circle"></i> Podaci o ministarstvu</a></li>
+                                <li><a href="{{ url('home') }}"><i class="fa fa-home"></i> Početna stranica i vijesti</a></li>
+                                <li><a href="{{ url('podaci') }}"><i class="fa fa-info-circle"></i> Podaci o ministarstvu</a></li>
                                 <li><a href="#"><i class="fa fa-users"></i> Djelatnici ministarstva</a></li>
                                 <li><a href="#"><i class="fa fa-calendar"></i> Događaji</a></li>
                                 <li><a href="#"><i class="fa fa-folder"></i> Dokumenti</a></li>

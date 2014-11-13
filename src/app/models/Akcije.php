@@ -1,7 +1,7 @@
 <?php
 
-class Tipovi extends Eloquent {
-	protected $table = 'tipovi';
+class Akcije extends Eloquent {
+	protected $table = 'akcije';
 	public $timestamps = false;
 
 	/**
@@ -10,8 +10,9 @@ class Tipovi extends Eloquent {
 	 * @var array
 	 */
 	//protected $hidden = array('password', 'remember_token');
-	public function svi_clanovi()
+
+	public function prijavljeni()
 	{
-		return $this->hasMany('User', 'tip');
+		return $this->hasMany('AkcijePrijave', 'id_akcije');
 	}
 }
