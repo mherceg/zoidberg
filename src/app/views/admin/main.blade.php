@@ -53,7 +53,7 @@
 
             <!-- /.navbar-top-links -->
             @yield('nav-sidebar')
-            @include('admin.nav-right')
+            @include('admin.nav-left')
             </div>
             <!-- /.navbar-static-side -->
         </nav>
