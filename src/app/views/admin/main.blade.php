@@ -47,13 +47,13 @@
                 </button>
                 <a class="navbar-brand" href="{{url('/admin')}}">{{ $ministarstvo }} - Administracija</a>
             </div>
+
+
             <!-- /.navbar-header -->
             @yield('nav-top')
-            @include('admin.nav-top')
 
             <!-- /.navbar-top-links -->
             @yield('nav-sidebar')
-            @include('admin.nav-left')
             </div>
             <!-- /.navbar-static-side -->
         </nav>
@@ -63,6 +63,13 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
+                        <br/>
+                        @if(isset($poruka))
+                        <div class="alert alert-success alert-dismissable">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                {{ $poruka }}
+                            </div>
+                        @endif
                         @yield('body')
                     </div>
                     <!-- /.col-lg-12 -->
