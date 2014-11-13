@@ -29,3 +29,6 @@ dodao obrasce uporabe od 1 do 8, dodao njihove dijagrame osim za obrazac broj 7,
 
 ### 12.11.2014., M
 procackala po okviru gotove dokumentacije, dodala napomenu, uredila format J-ovih obrazaca
+
+### 13.11.2014., M
+okvir se debljaaaaa
