@@ -17,6 +17,7 @@ class CreateDatotekeTable extends Migration {
 			$table->integer('direktorij')->unsigned();
 			$table->string('naziv');
 			$table->string('lokacija');
+			$table->integer('potrebna_dozvola');
 		});
 	}
 

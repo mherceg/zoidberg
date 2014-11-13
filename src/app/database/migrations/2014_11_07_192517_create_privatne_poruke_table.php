@@ -19,6 +19,7 @@ class CreatePrivatnePorukeTable extends Migration {
 			$table->string('naslov');
 			$table->text('sadrzaj');
 			$table->dateTime('vrijeme');
+			$table->string('privitak_lokacija');
 		});
 	}
 

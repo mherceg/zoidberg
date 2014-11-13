@@ -16,7 +16,7 @@ class CreateAkcijeTable extends Migration {
 			$table->increments('id');
 			$table->string('naziv');
 			$table->text('opis');
-			$table->integer('adresa')->unsigned();
+			$table->integer('max_ljudi')->unsigned();
 		});
 	}
 
