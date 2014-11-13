@@ -2,25 +2,30 @@
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
-                        <li class="sidebar-search">
-                            <div class="input-group custom-search-form">
-                                <input type="text" class="form-control" placeholder="Search...">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-default" type="button">
-                                        <i class="fa fa-search"></i>
-                                    </button>
-                                </span>
-                            </div>
-                            <!-- /input-group -->
-                        </li>
+                        
                         <li>
-                            <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Pregled</a>
+                            <a href="{{url('/admin/dashboard')}}"><i class="fa fa-dashboard fa-fw"></i> Pregled</a>
                         </li>
+                        
+                        <li>
+                            <a href="{{url('/admin/vijesti')}}"><i class="fa fa-info-circle fa-fw"></i> Vijesti<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{{ url('/admin/vijesti/add') }}">Dodaj novu vijest</a>
+                                </li>
 
+                                <li>
+                                    <a href="{{url('/admin/vijesti/edit')}}">Uređivanje vijesti</a>
+                                </li>
+                            </ul>
+                        </li>
+                        
                         <li>
-                            <a href="#"><i class="fa fa-info-circle fa-fw"></i> Uređivanje osnovnih podaci</a>
+                            <a href="{{url('/admin/osnovnipodaci')}}"><i class="fa fa-info-circle fa-fw"></i> Uređivanje osnovnih podaci</a>
                            
                         </li>
+
+
 
                         <li>
                             <a href="#"><i class="fa fa-envelope fa-fw"></i> Privatne poruke<span class="fa arrow"></span></a>
