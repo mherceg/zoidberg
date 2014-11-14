@@ -1,6 +1,6 @@
 <?php
 
-class Documentontroller extends BaseController {
+class DocumentController extends BaseController {
 
 	private $passed_data = array();
 
