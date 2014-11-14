@@ -21,7 +21,8 @@ abstract class BaseController extends Controller {
         $data = array(
             'ministarstvo' => $op->naziv,
             'podnaziv' => $op->podnaziv,
-            'title' => $this->retrivePageTitle()
+            'title' => $this->retrivePageTitle(),
+            'emblem' => $op->emblem_lokacija
         );
         View::share($data);
     }
