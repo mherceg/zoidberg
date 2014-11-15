@@ -32,3 +32,6 @@ procackala po okviru gotove dokumentacije, dodala napomenu, uredila format J-ovi
 
 ### 13.11.2014., M
 pojaèan rad na dokumentaciji
+
+### 15.11.2014., L
+dodani detaljniji ostali zahtjevi, malo ureðen tekst
