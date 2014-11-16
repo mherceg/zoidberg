@@ -16,13 +16,13 @@ Dodala shemu baze podataka
 Dodala dio gotove dokumentacije
 
 ### 1.11.2014., D
-Novosti oko baze. Da bi mogli zapoèeti s radom, i da bi smanjili probleme s "mojConfig-tvojConfig", napravite si (preko phpmyadmina) bazu "testmin". Za pristup bazi za sad koristimo usera root, jer eto.. moemo.
-Nakon toga pokrenite iz svog shella "php artisan migrate". To bi vam trebalo iæi po svim fileovima u migracijama i stvoriti odgovarajuæe tablice kako je tamo veæ opisano. Ukoliko doğe do nekakvih promjena u bazi, Lucija æe napraviti novu migraciju, svi æemo pokrenuti php artisan migrate ponovo, i onda æe taj sustav veæ shvatit šta imate/nemate i pokrpat stvari. U teoriji.
+Novosti oko baze. Da bi mogli zapoÄeti s radom, i da bi smanjili probleme s "mojConfig-tvojConfig", napravite si (preko phpmyadmina) bazu "testmin". Za pristup bazi za sad koristimo usera root, jer eto.. moÅ¾emo.
+Nakon toga pokrenite iz svog shella "php artisan migrate". To bi vam trebalo iÄ‡i po svim fileovima u migracijama i stvoriti odgovarajuÄ‡e tablice kako je tamo veÄ‡ opisano. Ukoliko doÄ‘e do nekakvih promjena u bazi, Lucija Ä‡e napraviti novu migraciju, svi Ä‡emo pokrenuti php artisan migrate ponovo, i onda Ä‡e taj sustav veÄ‡ shvatit Å¡ta imate/nemate i pokrpat stvari. U teoriji.
 
-Ovo je za sad neki test build, jer poèetna migracija ne radi još kako treba. Bit æe pokrpano UskoroÃ¢â€Ë˜.
+Ovo je za sad neki test build, jer poÄetna migracija ne radi joÅ¡ kako treba. Bit Ä‡e pokrpano UskoroÄ‚Ë˜Ã¢â‚¬Å¾Ã‹Â˜.
 
 ### 4.11.2014., M
-dodan glavni file u koji æe se mergati sva dokumentacija koja pristie, uskoro novi zadaci za ekipu s dokumentacije :P
+dodan glavni file u koji Ä‡e se mergati sva dokumentacija koja pristiÅ¾e, uskoro novi zadaci za ekipu s dokumentacije :P
 
 ### 10.11.2014., J
 dodao obrasce uporabe od 1 do 8, dodao njihove dijagrame osim za obrazac broj 7, za koji nisam siguran kako bih ga nacrtao. Isto tako, nisam siguran ni za dijagram za 1. obrazac, slican problem, razlika u nacinu rada kod djelatnika i kod gradjanina
@@ -31,10 +31,13 @@ dodao obrasce uporabe od 1 do 8, dodao njihove dijagrame osim za obrazac broj 7,
 procackala po okviru gotove dokumentacije, dodala napomenu, uredila format J-ovih obrazaca
 
 ### 13.11.2014., M
-pojaèan rad na dokumentaciji
+pojaÄan rad na dokumentaciji
 
 ### 15.11.2014., L
-dodani detaljniji ostali zahtjevi, malo ureğen tekst
+dodani detaljniji ostali zahtjevi, malo ureÄ‘en tekst
 
 ### 16.11.2014., L
-dodana literatura, malo ureğen tekst
+dodana literatura, malo ureÄ‘en tekst
+
+### 16.11.2014., M
+dodani dijagrami razreda, objekata, zavrÅ¡en rad na verziji v1.0
