@@ -35,3 +35,6 @@ pojaèan rad na dokumentaciji
 
 ### 15.11.2014., L
 dodani detaljniji ostali zahtjevi, malo ureðen tekst
+
+### 16.11.2014., L
+dodana literatura, malo ureðen tekst
