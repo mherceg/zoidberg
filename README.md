@@ -1,4 +1,4 @@
-zoidberg
+﻿zoidberg
 ========
 
 opp projekt
@@ -41,3 +41,6 @@ dodana literatura, malo uređen tekst
 
 ### 16.11.2014., M
 dodani dijagrami razreda, objekata, završen rad na verziji v1.0
+
+### 1.12.2014., M
+popravljene greške kod sekvencijskih dijagrama i sređeni linkovi na sadržaju
