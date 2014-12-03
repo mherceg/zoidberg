@@ -44,3 +44,6 @@ dodani dijagrami razreda, objekata, završen rad na verziji v1.0
 
 ### 1.12.2014., M
 popravljene greške kod sekvencijskih dijagrama i sređeni linkovi na sadržaju
+
+### 3.12.2014., M, R
+ispravljen veliki dijagram, dodan u glavni file
