@@ -47,3 +47,6 @@ popravljene greške kod sekvencijskih dijagrama i sređeni linkovi na sadržaju
 
 ### 3.12.2014., M, R
 ispravljen veliki dijagram, dodan u glavni file
+
+### 20.12.2014., M
+dodana poglavlja koja se trebaju ispuniti za drugu predaju, updatean sadržaj, promijenjen scenarij kod dijagrama objekata (slika slijedi uskoro), te se čeka na daljnji rad.
