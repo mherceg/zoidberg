@@ -50,3 +50,6 @@ ispravljen veliki dijagram, dodan u glavni file
 
 ### 20.12.2014., M
 dodana poglavlja koja se trebaju ispuniti za drugu predaju, updatean sadržaj, promijenjen scenarij kod dijagrama objekata (slika slijedi uskoro), te se čeka na daljnji rad.
+
+### 24.12.2014.,M
+dodan sadržaj za stranicu (fileovi, podaci o djelatnicima itd) more to come :)
