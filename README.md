@@ -53,3 +53,7 @@ dodana poglavlja koja se trebaju ispuniti za drugu predaju, updatean sadržaj, p
 
 ### 24.12.2014.,M
 dodan sadržaj za stranicu (fileovi, podaci o djelatnicima itd) more to come :)
+
+### 25.12.2014., L
+dodana dva dijagrama aktivnosti
+Sretan Božić :)
