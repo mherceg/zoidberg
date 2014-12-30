@@ -57,3 +57,6 @@ dodan sadržaj za stranicu (fileovi, podaci o djelatnicima itd) more to come :)
 ### 25.12.2014., L
 dodana dva dijagrama aktivnosti
 Sretan Božić :)
+
+### 30.12.2014., L
+dodana slika zgrade i opće informacije za ministarstvo
