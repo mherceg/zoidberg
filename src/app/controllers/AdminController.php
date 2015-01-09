@@ -48,4 +48,15 @@ class AdminController extends BaseController {
 		return $this->getIndex();
 	}
 
+	public function getVijestiUredi()
+	{
+		
+		return View::make('admin.uredi_vijesti');
+	}
+
+	public function getVijestiDodaj()
+	{
+		return "vijesti-addnew";
+	}
+
 }

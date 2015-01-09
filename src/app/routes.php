@@ -21,7 +21,8 @@ Route::controller('/admin', 'AdminController');
 Route::get('/admin', function() {
 	View::share(array(
 		'title' => "Admin Panel",
-		'ministarstvo' => "wut"
+		'ministarstvo' => "wut",
+		'emblem' => "test.png"
 	));
 
 	return View::make('admin.main');

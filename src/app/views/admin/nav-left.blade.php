@@ -11,11 +11,11 @@
                             <a href="{{url('/admin/vijesti')}}"><i class="fa fa-info-circle fa-fw"></i> Vijesti<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="{{ url('/admin/vijesti/add') }}">Dodaj novu vijest</a>
+                                    <a href="{{ url('/admin/vijesti-dodaj') }}">Dodaj novu vijest</a>
                                 </li>
 
                                 <li>
-                                    <a href="{{url('/admin/vijesti/edit')}}">Uređivanje vijesti</a>
+                                    <a href="{{url('/admin/vijesti-uredi')}}">Uređivanje vijesti</a>
                                 </li>
                             </ul>
                         </li>
@@ -64,4 +64,5 @@
                         
                     </ul>
                 </div>
+            </div>
                 <!-- /.sidebar-collapse -->
