@@ -9,6 +9,11 @@ class AdminController extends BaseController {
 		$this->beforeFilter('auth', array('except' => 'login'));
 	}
 
+	public function getIndex()
+	{
+		return Redirect::to('/admin/dashboard');
+	}
+
     public function retrivePageTitle() {
         return "Home";
     }
@@ -62,6 +67,25 @@ class AdminController extends BaseController {
 	public function getVijestiDodaj()
 	{
 		return "vijesti-addnew";
+	}
+
+	public function getPovijest() {
+		$op = OsnovniPodaci::first();
+		View::share(array(
+			'povijest' => $op->povijest
+		));
+		return View::make('admin.povijest');
+	}
+
+	public function postPovijest() {
+		$op = OsnovniPodaci::first();
+		$ulaz = Input::all();
+		$op['povijest'] = $ulaz['povijest'];
+		$op->save();
+		View::share(array(
+			'poruka' => "Promjene su uspješno spremljene!"
+		));
+		return $this->getPovijest();
 	}
 
 }

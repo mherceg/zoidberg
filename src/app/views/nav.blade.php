@@ -15,7 +15,7 @@
                                 <li><a href="#"><i class="fa fa-users"></i> Djelatnici ministarstva</a></li>
                                 <li><a href="#"><i class="fa fa-calendar"></i> Događaji</a></li>
                                 <li><a href="#"><i class="fa fa-folder"></i> Dokumenti</a></li>
-                                <li><a href="#"><i class="fa fa-book"></i> Povijest ministarstva</a></li>
+                                <li><a href="{{url('home/povijest')}}"><i class="fa fa-book"></i> Povijest ministarstva</a></li>
                                 <li><a href="#"><i class="fa fa-envelope"></i> Kontakt</a></li>
                                 <hr class="divider" />
                                 @if(!Auth::check())
@@ -25,7 +25,7 @@
                                 @if(Auth::check())
                                 <li><a href="#"><i class="fa fa-envelope-o"></i> Privatne poruke</a></li>
                                 <li><a href="#"><i class="fa fa-wrench"></i> Postavke korisničkog računa</a></li>
-                                <li><a href="#"><i class="fa fa-dashboard"></i> Administracijsko sučelje</a></li>
+                                <li><a href="{{url('/admin')}}"><i class="fa fa-dashboard"></i> Administracijsko sučelje</a></li>
                                 <li><a href="{{url('logout')}}"><i class="fa fa-sign-out"></i> Odjava</a></li>
                                 @endif
                             </ul>

@@ -17,7 +17,7 @@ Route::controller('/podaci', 'InfoController');
 Route::controller('/vijesti', 'NewsController');
 
 Route::controller('/admin', 'AdminController');
-
+/*
 Route::get('/admin', function() {
 	View::share(array(
 		'title' => "Admin Panel",
@@ -26,7 +26,7 @@ Route::get('/admin', function() {
 	));
 
 	return View::make('admin.main');
-});
+});*/
 
 Route::get('/', function() {
 	return Redirect::to('/home');

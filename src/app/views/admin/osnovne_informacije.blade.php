@@ -2,7 +2,7 @@
 
 
 @section('body')
-							<h1>Promjena osnovnih podataka</h1>
+							<h1 class="page-header">Promjena osnovnih podataka</h1>
 							<form method="POST" action="{{url('admin/osnovnipodaci')}}" accept-charset="UTF-8" class="form-signup">
        
 										<div class="form-group">

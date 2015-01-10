@@ -25,6 +25,11 @@
                            
                         </li>
 
+                        <li>
+                            <a href="{{url('/admin/povijest')}}"><i class="fa fa-book fa-fw"></i> Uređivanje povijesti</a>
+                           
+                        </li>
+
 
 
                         <li>
