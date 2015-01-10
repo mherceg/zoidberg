@@ -155,4 +155,15 @@ class AdminController extends BaseController {
 		return $this->getPovijest();
 	}
 
+	public function getPorukeAdministracija()
+	{
+		//return var_dump(Auth::user()->primljenePoruke);
+		View::share(
+			array(
+				'pmovi' => Auth::user()->primljenePoruke()->orderBy('vrijeme', 'desc')->get()	
+
+		));
+
+		return View::make('admin.pm_interno');
+	}
 }

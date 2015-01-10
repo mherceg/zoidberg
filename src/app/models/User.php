@@ -28,4 +28,8 @@ class User extends Eloquent implements UserInterface {
         return $this->hasMany('Vijesti', 'autor_id');
     }
 
+    public function primljenePoruke() {
+    	return $this->hasMany('PrivatnePoruke', 'reciever_id');
+    }
+
 }

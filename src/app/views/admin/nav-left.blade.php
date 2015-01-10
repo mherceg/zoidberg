@@ -36,10 +36,13 @@
                             <a href="#"><i class="fa fa-envelope fa-fw"></i> Privatne poruke<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="flot.html">Iz administracije</a>
+                                    <a href="{{url('/admin/poruke-administracija-posalji')}}">Pošalji novu poruku</a>
                                 </li>
                                 <li>
-                                    <a href="morris.html">Od građana</a>
+                                    <a href="{{url('/admin/poruke-administracija')}}">Iz administracije</a>
+                                </li>
+                                <li>
+                                    <a href="{{url('/admin/poruke-gradjani')}}">Od građana</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
