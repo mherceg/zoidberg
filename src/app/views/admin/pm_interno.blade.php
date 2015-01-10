@@ -24,10 +24,10 @@
                                                     <td>{{$pm->vrijeme}}</td>
                                                     <td>{{$pm->sadrzaj}}</td>
                                                     <td>
-                                                        @if(strlen($pm->privitak) == 0)
+                                                        @if(strlen($pm->privitak_lokacija) == 0)
                                                             -
                                                         @else
-                                                            <a href="{{$pm->privitak}}">Preuzmi privitak</a>
+                                                            <a href="../{{$pm->privitak_lokacija}}">Preuzmi privitak</a>
                                                         @endif
                                                     </td>
                                                 </tr>

@@ -8,6 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script src="http://listjs.com/no-cdn/list.js"></script>
+    <script src="http://listjs.com/no-cdn/list.fuzzysearch.js"></script>
 
     <title>{{$title}} | {{$ministarstvo}}</title>
 
@@ -99,4 +102,10 @@
 
 </body>
 
+    <script>
+        var monkeyList = new List('test-list', { 
+            valueNames: ['name'], 
+            plugins: [ ListFuzzySearch() ]
+        });
+    </script>
 </html>
