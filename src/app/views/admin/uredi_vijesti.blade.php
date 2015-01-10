@@ -4,7 +4,7 @@
 
 @section('body')
 	<h1 class="page-header">Uređivanje vijesti</h1>
-	<?php $vijesti = array() ?>
+
 	<table class="table table-bordered table-hover table-striped">
                                             <thead>
                                                 <tr>
@@ -19,9 +19,20 @@
                                             <tbody>
                                             	 @foreach($vijesti as $vijest)
                                             	 	<tr>
-                                            	 		<td>{{$vijest->naziv}}</td>
-                                            	 		<td>{{$vijest->datum}}</td>
-                                            	 		<td>{{$vijest->autor}}</td>
+                                            	 		<td>
+                                            	 			@if($vijest['objavljeno'] == 1)
+                                            	 			✓ 
+                                            	 			@endif
+
+                                            	 			{{$vijest['naslov']}}</td>
+                                            	 		<td>{{substr($vijest['sadrzaj'], 0, 50)}}
+                                            	 			@if(strlen($vijest['sadrzaj'] > 50))
+                                            	 				<br/>...
+                                            	 			@endif
+
+                                            	 		</td>
+                                            	 		<td>{{$vijest['datum']}}</td>
+                                            	 		<td>{{$vijest->autor->prezime}}, {{$vijest->autor->ime}}</td>
 
 										            	<td>
 											            	<div class="btn-group">
@@ -32,9 +43,9 @@
 							                                    <ul class="dropdown-menu pull-right" role="menu">
 							                                        <li><a href="#">Uredi</a>
 							                                        </li>
-							                                        <li><a href="#">Sakrij</a>
+							                                        <li><a href="{{url('/admin/sakrij?id='.$vijest['id'])}}">Sakrij</a>
 							                                        </li>
-							                                        <li><a href="#">Objavi</a>
+							                                        <li><a href="{{url('/admin/objavi?id='.$vijest['id'])}}">Objavi</a>
 							                                        </li>
 							                                    </ul>
 						                                	</div>

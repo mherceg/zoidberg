@@ -60,13 +60,35 @@ class AdminController extends BaseController {
 
 	public function getVijestiUredi()
 	{
-		
+		$vijesti = Auth::user()->news();
+		View::share(array(
+			'vijesti' => Auth::user()->news
+		));
+	
 		return View::make('admin.uredi_vijesti');
 	}
 
 	public function getVijestiDodaj()
 	{
 		return "vijesti-addnew";
+	}
+
+	public function getObjavi()
+	{
+		$ulaz = Input::all();
+		$v = Vijesti::find($ulaz['id']);
+		$v->objavljeno = 1;
+		$v->save();
+		return Redirect::to('/admin/vijesti-uredi');
+	}
+
+	public function getSakrij()
+	{
+		$ulaz = Input::all();
+		$v = Vijesti::find($ulaz['id']);
+		$v->objavljeno = 0;
+		$v->save();
+		return Redirect::to('/admin/vijesti-uredi');
 	}
 
 	public function getPovijest() {
