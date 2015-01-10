@@ -52,6 +52,16 @@ Route::get('/tu', function() {
 	return "Saved";
 });
 
+Route::get('/logout', function() {
+	Auth::logout();
+	return Redirect::to('/home');
+});
+
+
+Route::get('/amiloggedin', function() {
+	return var_dump(Auth::user());
+});
+
 
 Route::get('/testlogin', function() {
 

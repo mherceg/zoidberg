@@ -4,6 +4,11 @@ class AdminController extends BaseController {
 
 	private $passed_data = array();
 
+	public function __construct()
+	{
+		$this->beforeFilter('auth', array('except' => 'login'));
+	}
+
     public function retrivePageTitle() {
         return "Home";
     }
