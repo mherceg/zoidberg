@@ -41,7 +41,7 @@
 							                                        <span class="caret"></span>
 							                                    </button>
 							                                    <ul class="dropdown-menu pull-right" role="menu">
-							                                        <li><a href="#">Uredi</a>
+							                                        <li><a href="{{url('/admin/vijesti-dodaj?id='.$vijest['id'])}}">Uredi</a>
 							                                        </li>
 							                                        <li><a href="{{url('/admin/sakrij?id='.$vijest['id'])}}">Sakrij</a>
 							                                        </li>

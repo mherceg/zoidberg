@@ -62,7 +62,7 @@ class AdminController extends BaseController {
 	{
 		$vijesti = Auth::user()->news();
 		View::share(array(
-			'vijesti' => Auth::user()->news
+			'vijesti' => Auth::user()->news()->orderBy('datum', 'desc')->get()
 		));
 	
 		return View::make('admin.uredi_vijesti');
@@ -70,7 +70,52 @@ class AdminController extends BaseController {
 
 	public function getVijestiDodaj()
 	{
-		return "vijesti-addnew";
+		$ulaz = Input::all();
+		$vijest_id = -1;
+		if(isset($ulaz['id']))
+			$vijest_id = $ulaz['id'];
+
+		$vijest = Vijesti::find($vijest_id);
+		if($vijest == null) {
+			View::share(array(
+				'naslov' => "",
+				'sadrzaj' => "",
+				'vijest_id' => -1
+			));
+		}
+		else {
+			View::share(array(
+				'naslov' => $vijest->naslov,
+				'sadrzaj' => $vijest->sadrzaj,
+				'vijest_id' => $vijest_id
+			));
+		}
+
+		return View::make('admin.editor_vijesti');
+	}
+
+	public function postVijestiDodaj()
+	{
+		$ulaz = Input::all();
+		$v = null;
+		if($ulaz['vid'] != -1) {
+			$v = Vijesti::find($ulaz['vid']);
+			$v->naslov = $ulaz['naslov'];
+			$v->sadrzaj = $ulaz['sadrzaj'];
+			$v->objavljeno = $ulaz['objavi'];
+			$v->save();
+		}
+		else {
+			$v = new Vijesti();
+			$v->autor_id = Auth::id();
+			$v->objavljeno = $ulaz['objavi'];
+			$v->naslov = $ulaz['naslov'];
+			$v->sadrzaj = $ulaz['sadrzaj'];
+			$v->datum = new DateTime();
+			$v->save();
+		}
+		$redir = '/admin/vijesti-dodaj?id='.$v->id;
+		return Redirect::to($redir);
 	}
 
 	public function getObjavi()
