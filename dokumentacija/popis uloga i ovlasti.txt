@@ -1,0 +1,36 @@
+Dionici:
+•	graðani
+•	djelatnici ministarstva: 
+o	administrativni djelatnici
+o	èlan uprave
+o	tajnik
+o	financijski savjetnik
+o	pomoænik ministra
+o	ministar
+
+Aktori i njihovi funkcionalni zahtjevi:
+o	graðanin, inicijator:
+?	može slati upit djelatniku ministarstva
+?	može pristupati javno dostupnim dokumentima u arhivi ministarstva
+?	može se prijaviti na akcije ministarstva
+?	vidi profile djelatnika
+
+o	djelatnik ministarstva, financijski savjetnik inicijator:
+?	može objaviti vijest koja se prikazuje na glavnoj stranici ministarstva
+?	može pristupiti unutarnjem sustavu razmjene poruka
+?	može urediti svoj profil na zasebnoj web stranici
+?	može pristupiti javnim i povjerljivim dokumentima u arhivi ministarstva
+?	vidi popis prijavljenih graðana za svaku akciju (ukljuèujuæi i vrijeme prijave)
+
+o	èlan  uprave ministarstva, ministar, pomoænik ministra inicijator:
+?	može dodati novog djelatnika u sustav
+?	može mijenjati podatke postojeæih djelatnika
+?	može pristupiti strogo povjerljivim dokumentima
+?	može omoguæiti/zabraniti pristup odreðenog djelatnika strogo povjerljivom dokumentu
+?	može mijenjati sve osnovne podatke o ministarstvu na odgovarajuæoj stranici
+
+o	sustav, sudionik:
+?	pristupa bazi podataka na zahtjev korisnika sustava
+
+o	tajnik, sudionik:
+?	može gledati poruke koje šalju graðani
