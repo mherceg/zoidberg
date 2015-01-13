@@ -11,11 +11,11 @@
                             <a href="{{url('/admin/vijesti')}}"><i class="fa fa-info-circle fa-fw"></i> Vijesti<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="{{ url('/admin/vijesti/add') }}">Dodaj novu vijest</a>
+                                    <a href="{{ url('/admin/vijesti-dodaj') }}">Dodaj novu vijest</a>
                                 </li>
 
                                 <li>
-                                    <a href="{{url('/admin/vijesti/edit')}}">Uređivanje vijesti</a>
+                                    <a href="{{url('/admin/vijesti-uredi')}}">Uređivanje vijesti</a>
                                 </li>
                             </ul>
                         </li>
@@ -25,16 +25,24 @@
                            
                         </li>
 
+                        <li>
+                            <a href="{{url('/admin/povijest')}}"><i class="fa fa-book fa-fw"></i> Uređivanje povijesti</a>
+                           
+                        </li>
+
 
 
                         <li>
                             <a href="#"><i class="fa fa-envelope fa-fw"></i> Privatne poruke<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="flot.html">Iz administracije</a>
+                                    <a href="{{url('/admin/poruke-administracija-posalji')}}">Pošalji novu poruku</a>
                                 </li>
                                 <li>
-                                    <a href="morris.html">Od građana</a>
+                                    <a href="{{url('/admin/poruke-administracija')}}">Iz administracije</a>
+                                </li>
+                                <li>
+                                    <a href="{{url('/admin/poruke-gradjani')}}">Od građana</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -64,4 +72,5 @@
                         
                     </ul>
                 </div>
+            </div>
                 <!-- /.sidebar-collapse -->

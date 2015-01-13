@@ -44,7 +44,7 @@
         @if(isset($alert))
         <div class="alert alert-danger">
             <h4>{{$alert['title']}}</h4/>
-            <p>${{ $alert['content']}}</p>
+            <p>{{ $alert['content']}}</p>
         </div>
         @endif
 

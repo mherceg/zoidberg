@@ -17,15 +17,16 @@ Route::controller('/podaci', 'InfoController');
 Route::controller('/vijesti', 'NewsController');
 
 Route::controller('/admin', 'AdminController');
-
+/*
 Route::get('/admin', function() {
 	View::share(array(
 		'title' => "Admin Panel",
-		'ministarstvo' => "wut"
+		'ministarstvo' => "wut",
+		'emblem' => "test.png"
 	));
 
 	return View::make('admin.main');
-});
+});*/
 
 Route::get('/', function() {
 	return Redirect::to('/home');
@@ -49,6 +50,16 @@ Route::get('/tu', function() {
 		return var_dump($e);
 	}
 	return "Saved";
+});
+
+Route::get('/logout', function() {
+	Auth::logout();
+	return Redirect::to('/home');
+});
+
+
+Route::get('/amiloggedin', function() {
+	return var_dump(Auth::user());
 });
 
 

@@ -19,9 +19,19 @@ class NewsController extends BaseController
         $forma = Input::all();
         $user = User::first();
 
+        $user_id = 0;
+
+        if(Auth::id() == null) {
+            $user_id = $user['id'];
+        }
+        else
+        {
+            $user_id = Auth::id();
+        }
+
         Vijesti::create(array(
             // TODO fill with active user id
-            'autor_id' => Auth::id(),
+            'autor_id' => $user_id,
             'objavljeno' => true,
             'naslov' => $forma['naslov'],
             'sadrzaj' => $forma['sadrzaj'],

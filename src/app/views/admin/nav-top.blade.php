@@ -5,45 +5,24 @@
                         <i class="fa fa-envelope fa-fw"></i>  <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-messages">
+                        
+                        @foreach($pm_topbar as $ppp)
+                                <li>
+                                    <a href="#">
+                                        <div>
+                                            <strong>{{$ppp->sender->prezime}}, {{$ppp->sender->ime}}</strong>
+                                            <span class="pull-right text-muted">
+                                                <em>{{$ppp->vrijeme}}</em>
+                                            </span>
+                                        </div>
+                                        <div>{{$ppp->naslov}}</div>
+                                    </a>
+                                </li>
+                                <li class="divider"></li>
+                                @endforeach
                         <li>
-                            <a href="#">
-                                <div>
-                                    <strong>John Smith</strong>
-                                    <span class="pull-right text-muted">
-                                        <em>Yesterday</em>
-                                    </span>
-                                </div>
-                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <strong>John Smith</strong>
-                                    <span class="pull-right text-muted">
-                                        <em>Yesterday</em>
-                                    </span>
-                                </div>
-                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <strong>John Smith</strong>
-                                    <span class="pull-right text-muted">
-                                        <em>Yesterday</em>
-                                    </span>
-                                </div>
-                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a class="text-center" href="#">
-                                <strong>Read All Messages</strong>
+                            <a class="text-center" href="{{url('admin/poruke-administracija')}}">
+                                <strong>Pogledaj sve poruke</strong>
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         </li>
@@ -58,12 +37,12 @@
                         <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-home fa-fw"></i> Početna stranica</a>
+                        <li><a href="{{url('/home')}}"><i class="fa fa-home fa-fw"></i> Početna stranica</a>
                         </li>
                         <li><a href="#"><i class="fa fa-user fa-fw"></i> Korisničke postavke</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Odjava</a>
+                        <li><a href="{{url('/logout')}}"><i class="fa fa-sign-out fa-fw"></i> Odjava</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
