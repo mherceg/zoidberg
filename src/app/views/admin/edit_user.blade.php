@@ -63,7 +63,9 @@
                                         <button type="submit" class="btn btn-large btn-danger btn-block">Odaberi korisnika</button>
                                     </div>
                                 </form>
-@stop
+
+
+                                <br/>
 @stop
 
 

@@ -27,11 +27,11 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Loznika</label>
-                                            <input class="form-control" value="" name="pwd1">
+                                            <input class="form-control" value="" name="pwd1" type="password">
                                         </div>
                                         <div class="form-group">
                                             <label>Potvrdi lozinku</label>
-                                            <input class="form-control" value="" name="pwd2">
+                                            <input class="form-control" value="" name="pwd2" type="password">
                                         </div>
 										<div class="form-group">
                                             <label>Uloga</label>
