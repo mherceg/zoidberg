@@ -21,7 +21,7 @@
                         </li>
                         
                         <li>
-                            <a href="{{url('/admin/osnovnipodaci')}}"><i class="fa fa-info-circle fa-fw"></i> Uređivanje osnovnih podaci</a>
+                            <a href="{{url('/admin/osnovnipodaci')}}"><i class="fa fa-info-circle fa-fw"></i> Uređivanje osnovnih podataka</a>
                            
                         </li>
 
@@ -51,19 +51,19 @@
                             <a href="tables.html"><i class="fa fa-calendar fa-fw"></i> Akcije</a>
                         </li>
                         <li>
-                            <a href="forms.html"><i class="fa fa-file-o fa-fw"></i> Doukmenti</a>
+                            <a href="forms.html"><i class="fa fa-file-o fa-fw"></i> Dokumenti</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-wrench fa-fw"></i> Upravljanje korisnicima<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="panels-wells.html">Dodavanje novih članova</a>
+                                    <a href="{{url('/admin/korisnici-dodaj')}}">Dodavanje novih članova</a>
                                 </li>
                                 <li>
-                                    <a href="buttons.html">Uređivanje ovlasti</a>
+                                    <a href="{{url('/admin/ovlasti')}}">Uređivanje ovlasti</a>
                                 </li>   
                                 <li>
-                                    <a href="buttons.html">Uređivanje profila</a>
+                                    <a href="buttons.html">Uređivanje korisnika</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
