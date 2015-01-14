@@ -16,6 +16,7 @@ Route::controller('/home', 'HomeController');
 Route::controller('/podaci', 'InfoController');
 Route::controller('/vijesti', 'NewsController');
 
+Route::controller('/admin/datoteke', 'FileController');
 Route::controller('/admin', 'AdminController');
 /*
 Route::get('/admin', function() {

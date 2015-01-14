@@ -51,7 +51,15 @@
                             <a href="tables.html"><i class="fa fa-calendar fa-fw"></i> Akcije</a>
                         </li>
                         <li>
-                            <a href="forms.html"><i class="fa fa-file-o fa-fw"></i> Dokumenti</a>
+                            <a href="#"><i class="fa fa-file-o fa-fw"></i> Dokumenti<span class="fa arrow"></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{{url('/admin/datoteke/direktorij')}}">Dodaj direktorij</a>
+                                </li>
+                                <li>
+                                    <a href="{{url('/admin/datoteke/datoteke')}}">Dodaj datoteku</a>
+                                </li>
+                            </ul>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-wrench fa-fw"></i> Upravljanje korisnicima<span class="fa arrow"></span></a>
