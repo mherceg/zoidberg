@@ -252,4 +252,51 @@ class AdminController extends BaseController {
 
 		return $naziv;
 	}
+
+	public function getKorisniciDodaj()
+	{
+		return View::make('admin.adduser');
+	}
+
+	public function postKorisniciDodaj()
+	{
+		$aa = Input::all();
+		return var_dump($aa);
+	}
+
+	public function getOvlasti() {
+
+		return View::make('admin.ovlasti');
+	}
+
+	public function postOvlasti() {
+		$ulaz = Input::all();
+
+		if($ulaz['tip'] == 'sub') {
+			$t = new Ovlasti();
+			$t->tip_id = Tipovi::where('naziv_tipa', '=', $ulaz['ime'])->first()->id;
+			$t->modul = $ulaz['oznaka'];
+			$t->ovlast = $ulaz['ovlast'];
+			$t->save();
+			$this->ispisObavijesti('Ova ovlast je dodana!');
+		}
+		else if($ulaz['tip'] == 'nov') {
+			$noviTip = new Tipovi();
+
+			$noviTip->naziv_tipa = $ulaz['nazivNovi'];
+			$noviTip->d_dozvola_def = $ulaz['defDoz'];
+			$noviTip->titula = $ulaz['titula'];
+			$noviTip->save();
+
+			$this->ispisObavijesti('Novi tip je uspješno dodan!');
+		}
+		//return var_dump($ulaz);
+		return $this->getOvlasti();
+	}
+
+	private function ispisObavijesti($por) {
+		View::share(array(
+			'poruka' => $por
+		));
+	}
 }
