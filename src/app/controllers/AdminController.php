@@ -327,8 +327,6 @@ class AdminController extends BaseController {
 		));
 	}
 
-	$usr[] = array();
-
 	public function getKorisniciUredi() {
 		$ulaz = Input::all();
 
