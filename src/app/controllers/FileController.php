@@ -18,7 +18,7 @@ class FileController extends BaseController {
 	public function getDirektorij() {
 
 		View::share(array(
-			'folderi' => Direktoriji::all()
+			'folderi' => Direktoriji::all()->sortBy('naziv')
 		));
 		return View::make("admin.folder");
 	}
@@ -49,7 +49,7 @@ class FileController extends BaseController {
 	{
 
 		View::share(array(
-			'folderi' => Direktoriji::all()
+			'folderi' => Direktoriji::all()->sortBy('naziv')
 		));
 		return View::make("admin.files");
 	}
@@ -58,7 +58,37 @@ class FileController extends BaseController {
 	{
 		$ulaz = Input::all();
 
-		return var_dump($ulaz);
+		$file = $ulaz['fileToUpload'];
+		$path = explode("|", $ulaz['roditelj'])[1];
+		$pid = explode("|", $ulaz['roditelj'])[0];
+
+		$path = substr($path, 1);
+
+//		return var_dump($ulaz);
+		if(!isset($ulaz['fileToUpload']) || $ulaz['fileToUpload'] == null) {
+			$this->ispisObavijesti("GREŠKA: Datoteka nije uploadana!");
+			return $this->getDatoteke();
+		}
+		else {
+			$ime = $file->getClientOriginalName();
+			$file = $file->move('public/datoteke'.$path.'/', $ime);
+
+			$t = new Datoteke();
+
+			if(Datoteke::where('naziv', '=', $ime)->where('direktorij', '=', $pid)->count()) {
+				$t = Datoteke::where('naziv', '=', $ime)->where('direktorij', '=', $pid)->get()->first();
+				$this->ispisObavijesti("Datoteka \"".$ime."\" je uspješno ažurirana!");
+			}
+			else 
+			$this->ispisObavijesti("Datoteka \"".$ime."\" je uspješno postavljena!");
+
+			$t->direktorij = $pid;
+			$t->naziv = $ime;
+			$t->lokacija = 'public/datoteke'.$path;
+			$t->potrebna_dozvola = $ulaz['tajnost'];
+			$t->save();
+
+		}
 
 		return $this->getDatoteke();
 	}

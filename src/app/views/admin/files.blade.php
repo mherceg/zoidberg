@@ -9,8 +9,17 @@
                                             <label>Odaberi direktorij</label>
                                             <select class="form-control" name="roditelj">
                                                 @foreach($folderi as $f)
-                                                    <option value="{{$f->id}}">{{$f->dobijCijeliPath()}}</option>
+                                                    <option value="{{$f->id}}|{{$f->dobijCijeliPath()}}">{{$f->dobijCijeliPath()}}</option>
                                                 @endforeach
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Odaberi tajnost</label>
+                                            <select class="form-control" name="tajnost">
+                                                <option value="0">Javno</option>
+                                                <option value="1">Tajno</option>
+                                                <option value="2">Posebno tajno</option>
                                             </select>
                                         </div>
                                         
