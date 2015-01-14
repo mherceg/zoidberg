@@ -35,7 +35,7 @@
                                         </div>
 										<div class="form-group">
                                             <label>Uloga</label>
-                                            <select multiple="" class="form-control" name="uloga">
+                                            <select class="form-control" name="uloga">
                                                 @foreach($tpp as $r)
                                                     <option value="{{$r->id}}">{{$r->titula}}</option>
                                                 @endforeach

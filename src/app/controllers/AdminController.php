@@ -360,6 +360,21 @@ class AdminController extends BaseController {
 		$ulaz = Input::all();
 
 		return var_dump($ulaz);
+
+		$t = User::find($ulaz['userID']);
+
+		$t->email = $ulaz['mail'];
+		$t->ime = $ulaz['ime'];
+		$t->prezime = $ulaz['prez'];
+		$t->tip = $ulaz['uloga'];
+		$t->funkcija = $ulaz['funkcija'];
+		$t->aktiviran = '1';
+		$t->oib = $ulaz['oib'];
+		$t->d_dozvola = Tipovi::where('id', '=', $ulaz['uloga'])->first()->d_dozvola_def;
+			
+		$t->save();
+
+		$this->ispisObavijesti('Dodan je novi korisnik!');
 /*
 		$users = User::all();
 

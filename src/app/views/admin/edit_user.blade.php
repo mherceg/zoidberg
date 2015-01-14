@@ -50,6 +50,7 @@
 
                                     <div class="text-center">
                                         <button type="submit" class="btn btn-large btn-danger btn-block ">Spremi</button>
+                                        <input type="hidden" value="@if(isset($usr)){{$usr->id}}@endif" name="userID" />
                                     </div>
                                 </form>
                             </div>
