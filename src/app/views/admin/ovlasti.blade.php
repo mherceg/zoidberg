@@ -6,15 +6,15 @@
                             <form method="POST" action="{{url('admin/ovlasti')}}" accept-charset="UTF-8" class="form-signup">
        
                                         <div class="form-group">
-                                            <label>Ime ovlasti</label>
+                                            <label>Ime tipa nad kojim se mjenja ovlast</label>
                                             <input class="form-control" value="" name="ime">
                                         </div>
                                         <div class="form-group">
-                                            <label>Oznaka modula</label>
+                                            <label>Oznaka modula kojoj se ovlast mjenja</label>
                                             <input class="form-control" value="" name="oznaka">
                                         </div>
                                         <div class="form-group">
-                                            <label>Oznaka ovlasti</label>
+                                            <label>Ovlast</label>
                                             <input class="form-control" value="" name="ovlast">
                                         </div>
                                         <div class="text-center">

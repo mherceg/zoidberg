@@ -38,6 +38,18 @@
                                         <input class="form-control" value="@if(isset($usr)){{$usr->d_dozvola}}@endif" name="ddoz">
                                     </div>
                                     <div class="form-group">
+                                            <label>Uloga</label>
+                                            <select class="form-control" name="uloga">
+                                                @foreach($tpp as $r)
+                                                    @if(isset($usr))
+                                                    <option value="{{$r->id}}" @if($usr->tip == $r->id){{"selected"}}@endif>{{$r->titula}}</option>
+                                                    @else
+                                                    <option value="{{$r->id}}">{{$r->titula}}</option>
+                                                    @endif
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    <div class="form-group">
                                         <label>Akitivran</label>
                                         <input class="form-control" type="checkbox" name="aktv"
                                         @if(isset($usr))
