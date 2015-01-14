@@ -266,7 +266,10 @@ class AdminController extends BaseController {
 		$ulaz = Input::all();
 
 		if($ulaz['pwd1'] != $ulaz['pwd2']) {
-			$this->ispisObavijesti('Dodan je novi korisnik!');
+			$this->ispisObavijesti('Lozinke nisu jednke!');
+		}
+		else if(empty($ulaz['mail']) || empty($ulaz['ime']) || empty($ulaz['prezime']) || empty($ulaz['pwd1']) || empty($ulaz['uloga']) || empty($ulaz['funkcija'] || empty($ulaz['oib']))) {
+			$this->ispisObavijesti("Sva polja je potrebno ispuniti!");
 		}
 		else {
 			$t = new User();
@@ -349,5 +352,33 @@ class AdminController extends BaseController {
 		));
 
 		return View::make('admin.edit_user');
+	}
+
+
+
+	public function postKorisniciUredi() {
+		$ulaz = Input::all();
+
+		return var_dump($ulaz);
+/*
+		$users = User::all();
+
+		if(isset($ulaz['uid'])) {
+			$usr = User::find($ulaz['uid']);
+			if($usr != null) {
+				View::share(array(
+					'usr' => $usr
+				));
+			}
+			else {
+				$this->ispisObavijesti("Korisnik sa zadanim IDom ne postoji!");
+			}
+		}
+
+		View::share(array(
+			'kor' => $users
+		));
+
+		return View::make('admin.edit_user');*/
 	}
 }

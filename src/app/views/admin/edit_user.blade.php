@@ -19,27 +19,33 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Prezime</label>
-                                        <input class="form-control" value="@if(isset($usr)){{$usr->prezime}}@endif" name="ime">
+                                        <input class="form-control" value="@if(isset($usr)){{$usr->prezime}}@endif" name="prez">
                                     </div>
                                     <div class="form-group">
                                         <label>OIB</label>
-                                        <input class="form-control" value="@if(isset($usr)){{$usr->oib}}@endif" name="ime">
+                                        <input class="form-control" value="@if(isset($usr)){{$usr->oib}}@endif" name="oib">
                                     </div>
                                     <div class="form-group">
                                         <label>Funkcija</label>
-                                        <input class="form-control" value="@if(isset($usr)){{$usr->funkcija}}@endif" name="ime">
+                                        <input class="form-control" value="@if(isset($usr)){{$usr->funkcija}}@endif" name="funk">
                                     </div>
                                     <div class="form-group">
                                         <label>Adresa e-pošte</label>
-                                        <input class="form-control" value="@if(isset($usr)){{$usr->email}}@endif" name="ime">
+                                        <input class="form-control" value="@if(isset($usr)){{$usr->email}}@endif" name="mail">
                                     </div>
                                     <div class="form-group">
                                         <label>Razina datotečnog pristupa</label>
-                                        <input class="form-control" value="@if(isset($usr)){{$usr->d_dozvola}}@endif" name="ime">
+                                        <input class="form-control" value="@if(isset($usr)){{$usr->d_dozvola}}@endif" name="ddoz">
                                     </div>
                                     <div class="form-group">
                                         <label>Akitivran</label>
-                                        <input class="form-control" type="checkbox" name="aktv" value="" checked />
+                                        <input class="form-control" type="checkbox" name="aktv"
+                                        @if(isset($usr))
+                                        @if($usr->aktiviran)
+                                        checked 
+                                        @endif
+                                        @endif
+                                        />
                                     </div>
 
                                     <div class="text-center">

@@ -14,7 +14,21 @@ class LoginController extends BaseController {
 	public function postIndex() {
 		$ulaz = Input::all();
 
-		$b = User::all();
+		$b = User::where('email', "=", $ulaz['email'])->get();
+
+		if(!$b->isEmpty()) {
+			$ak = $b->first()->aktiviran;
+			if($ak == 0) {
+				$alert = array(
+					'title' => "Prijava neuspjela!",
+					'content' => "Korisnik nije aktiviran! Obratite se administratoru."
+				);
+				View::share(array(
+						'alert' => $alert
+					));
+				return View::make('login');
+			}
+		}
 
 		$cred = array(
 			'email' => $ulaz['email'],
