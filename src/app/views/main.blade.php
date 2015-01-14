@@ -29,13 +29,16 @@
 <body>
     <!-- ******HEADER****** --> 
     <header class="header">
-        <div class="container">                       
-            <img class="profile-image img-responsive pull-left" src="{{asset($emblem.'" width="150" height="150')}}" />
+        <div class="container">
+            <a href="{{url('/home')}}">                       
+                <img class="profile-image img-responsive pull-left" src="{{asset($emblem.'" width="150" height="150')}}" />
+            </a>
             <div class="profile-content">
                 <h1 class="name">{{$ministarstvo}}</h1>
                 <h2 class="desc">{{$podnaziv}}</h2>   
 
             </div><!--//profile-->
+
         </div><!--//container-->
     </header><!--//header-->
     
@@ -44,7 +47,7 @@
         @if(isset($alert))
         <div class="alert alert-danger">
             <h4>{{$alert['title']}}</h4/>
-            <p>${{ $alert['content']}}</p>
+            <p>{{ $alert['content']}}</p>
         </div>
         @endif
 
@@ -69,7 +72,7 @@
     <!-- ******FOOTER****** --> 
     <footer class="footer">
         <div class="container text-center">
-                <small class="copyright">Ministarstvo interstelarnog dostavljanja paketa 3001. - 3014.</small>
+                <small class="copyright">Ministarstvo interstelarnog dostavljanja paketa 3001. - 3015.</small>
         </div><!--//container-->
     </footer><!--//footer-->
  

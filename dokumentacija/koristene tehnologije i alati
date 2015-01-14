@@ -1,0 +1,5 @@
+Za izradu web stranice ministarstva koristen je SublimeText2 uredivac teksta. 
+Za instalaciju mysql i php dijelova sustava koristen je wamp, alat koji ima ugradenu automatsku konfiguraciju apache, mysql i php komponenti. 
+Wamp je instalirao phpMyAdmin kao alat za pomoc u administraciji baze podataka. Migracije za bazu podataka i pokretanje laravel projekta su radene pomocu composer alata. 
+Komunikacija unutar grupe se odvijala putem Google groups alata i Facebookove messenger usluge.
+Za verzioniranje sustava koristeni su subversion i git sustavi sa privatnim github repozitorijem.
