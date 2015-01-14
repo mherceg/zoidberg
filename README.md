@@ -60,3 +60,6 @@ Sretan Božić :)
 
 ### 30.12.2014., L
 dodana slika zgrade i opće informacije za ministarstvo
+
+### 7.1.2015., R
+dodan dijagram razmještaja i ispitni scenariji

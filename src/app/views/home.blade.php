@@ -31,12 +31,12 @@
                 </section>
                 @endif
             @endforeach
-
+<!--
             <section class="section">
                 <div class="section-inner">
                     <a href="{{action('NewsController@getCreate')}}">Dodaj novu vijest</a>
                 </div>
-            </section>
+            </section>-->
 
 @stop
 

@@ -10,7 +10,7 @@ class PrivatnePoruke extends Eloquent {
 	 *
 	 * @var array
 	 */
-	protected $hidden = array('id', 'password', 'sender_id', 'reciever_id', 'naslov', 'sadrzaj', 'vrijeme');
+	//protected $hidden = array('id', 'password', 'sender_id', 'reciever_id', 'naslov', 'sadrzaj', 'vrijeme');
 
 	public function sender() {
      	return $this->belongsTo('User', 'sender_id');

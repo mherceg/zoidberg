@@ -18,12 +18,20 @@ abstract class BaseController extends Controller {
 
     private function loadBasicData() {
         $op = OsnovniPodaci::first();
+        $poruke = null;
+
+        if(Auth::check()) {
+        	$poruke = PrivatnePoruke::orderBy('vrijeme', 'desc')->take(3)->get();
+        }
+
         $data = array(
             'ministarstvo' => $op->naziv,
             'podnaziv' => $op->podnaziv,
             'title' => $this->retrivePageTitle(),
-            'emblem' => $op->emblem_lokacija
+            'emblem' => $op->emblem_lokacija,
+            'pm_topbar' => $poruke
         );
+
         View::share($data);
     }
 
