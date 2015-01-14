@@ -15,6 +15,7 @@ Route::controller('/login', 'LoginController');
 Route::controller('/home', 'HomeController');
 Route::controller('/podaci', 'InfoController');
 Route::controller('/vijesti', 'NewsController');
+Route::controller('/akcije', 'EventsController');
 
 Route::controller('/admin/datoteke', 'FileController');
 Route::controller('/admin', 'AdminController');
@@ -79,4 +80,12 @@ Route::get('/testlogin', function() {
         //$a = "20";
 
 	return var_dump($a);
+});
+
+View::composer('nav', function($view) {
+	$akcije = Akcije::all();
+	$akcije->shuffle();
+	$akcije = $akcije->take(2);
+
+	$view->with('nav_akcije', $akcije);
 });
