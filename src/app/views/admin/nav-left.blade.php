@@ -63,7 +63,7 @@
                                     <a href="{{url('/admin/ovlasti')}}">Uređivanje ovlasti</a>
                                 </li>   
                                 <li>
-                                    <a href="buttons.html">Uređivanje korisnika</a>
+                                    <a href="{{url('/admin/korisnici-uredi')}}">Uređivanje korisnika</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

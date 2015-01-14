@@ -285,7 +285,7 @@ class AdminController extends BaseController {
 
 			$this->ispisObavijesti('Dodan je novi korisnik!');
 		}
-		
+
 		View::share(array(
 			'tpp' => Tipovi::all()
 		));
@@ -325,5 +325,25 @@ class AdminController extends BaseController {
 		View::share(array(
 			'poruka' => $por
 		));
+	}
+
+	$usr[] = array();
+
+	public function getKorisniciUredi() {
+		$ulaz = Input::all();
+
+		if(isset($ulaz['uid'])) {
+			$usr = User::find($ulaz['uid']);
+			if($usr != null) {
+				View::share(array(
+					'usr' => $usr
+				));
+			}
+			else {
+				$this->ispisObavijesti("Korisnik sa zadanim IDom ne postoji!");
+			}
+		}
+
+		return View::make('admin.edit_user');
 	}
 }
