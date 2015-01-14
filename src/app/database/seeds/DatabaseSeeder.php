@@ -14,6 +14,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call('VijestiSeeder');
         $this->call('OsnovniPodaciSeeder');
+        $this->call('AkcijeSeeder');
     }
 
 }
