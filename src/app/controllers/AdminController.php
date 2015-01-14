@@ -330,6 +330,8 @@ class AdminController extends BaseController {
 	public function getKorisniciUredi() {
 		$ulaz = Input::all();
 
+		$users = User::all();
+
 		if(isset($ulaz['uid'])) {
 			$usr = User::find($ulaz['uid']);
 			if($usr != null) {
@@ -341,6 +343,10 @@ class AdminController extends BaseController {
 				$this->ispisObavijesti("Korisnik sa zadanim IDom ne postoji!");
 			}
 		}
+
+		View::share(array(
+			'kor' => $users
+		));
 
 		return View::make('admin.edit_user');
 	}
