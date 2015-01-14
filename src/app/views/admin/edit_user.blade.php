@@ -41,7 +41,11 @@
                                             <label>Uloga</label>
                                             <select class="form-control" name="uloga">
                                                 @foreach($tpp as $r)
+                                                    @if(isset($usr))
                                                     <option value="{{$r->id}}" @if($usr->tip == $r->id){{"selected"}}@endif>{{$r->titula}}</option>
+                                                    @else
+                                                    <option value="{{$r->id}}">{{$r->titula}}</option>
+                                                    @endif
                                                 @endforeach
                                             </select>
                                         </div>
