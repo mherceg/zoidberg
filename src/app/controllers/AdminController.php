@@ -255,17 +255,45 @@ class AdminController extends BaseController {
 
 	public function getKorisniciDodaj()
 	{
+		View::share(array(
+			'tpp' => Tipovi::all()
+		));
 		return View::make('admin.adduser');
 	}
 
 	public function postKorisniciDodaj()
 	{
-		$aa = Input::all();
-		return var_dump($aa);
+		$ulaz = Input::all();
+
+		if($ulaz['pwd1'] != $ulaz['pwd2']) {
+			$this->ispisObavijesti('Dodan je novi korisnik!');
+		}
+		else {
+			$t = new User();
+
+			$t->email = $ulaz['mail'];
+			$t->password = Hash::make($ulaz['pwd1']);
+			$t->ime = $ulaz['ime'];
+			$t->prezime = $ulaz['prezime'];
+			$t->tip = $ulaz['uloga'];
+			$t->funkcija = $ulaz['funkcija'];
+			$t->aktiviran = '1';
+			$t->oib = $ulaz['oib'];
+			$t->d_dozvola = Tipovi::where('id', '=', $ulaz['uloga'])->first()->d_dozvola_def;
+			
+			$t->save();
+
+			$this->ispisObavijesti('Dodan je novi korisnik!');
+		}
+		
+		View::share(array(
+			'tpp' => Tipovi::all()
+		));
+		return View::make('admin.adduser');
 	}
 
-	public function getOvlasti() {
-
+	public function getOvlasti() 
+	{
 		return View::make('admin.ovlasti');
 	}
 

@@ -36,11 +36,9 @@
 										<div class="form-group">
                                             <label>Uloga</label>
                                             <select multiple="" class="form-control" name="uloga">
-                                                <option>Ministar</option>
-                                                <option value="5">Tajnica</option>
-                                                <option>Pingvin</option>
-                                                <option>4</option>
-                                                <option>5</option>
+                                                @foreach($tpp as $r)
+                                                    <option value="{{$r->id}}">{{$r->titula}}</option>
+                                                @endforeach
                                             </select>
                                         </div>
                                         <div class="text-center">
