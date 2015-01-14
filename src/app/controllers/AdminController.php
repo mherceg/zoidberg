@@ -290,7 +290,6 @@ class AdminController extends BaseController {
 
 			$this->ispisObavijesti('Novi tip je uspješno dodan!');
 		}
-		//return var_dump($ulaz);
 		return $this->getOvlasti();
 	}
 
