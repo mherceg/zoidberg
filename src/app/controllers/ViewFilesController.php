@@ -34,6 +34,15 @@ class ViewFilesController extends BaseController {
     }
 
 	public function postIndex() {
+		$ulaz = Input::all();
+
+		$rez = Datoteke::where('naziv', 'LIKE', '%'.$ulaz['pretrag'].'%')->get();
+
+		View::share(array(
+			'pretrag' => $ulaz['pretrag'],
+			'rezPret' => $rez
+		));
+
 		return $this->getIndex();
 	}
 

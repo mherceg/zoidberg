@@ -14,7 +14,7 @@ class CreateVanjskePorukeTable extends Migration {
 	{
 		Schema::create('vanjske_poruke', function($table) {
 			$table->increments('id');
-			$table->integer('reciever_id')->unsigned();
+			$table->integer('reciever_id')->unsigned()->nullable();
 			$table->integer('kat_id')->unsigned();
 			$table->string('naslov');
 			$table->text('sadrzaj');

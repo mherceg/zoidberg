@@ -483,4 +483,25 @@ class AdminController extends BaseController {
 
 		return View::make('admin.edit_user');
 	}
+
+	public function getPorukeGradjani() {
+		View::share(array(
+			'pmovi' => VanjskePoruke::take(50)->get()
+		));
+		return View::make('admin.vp_pregled');
+	}
+
+	public function postPorukeGradjani() {
+		$ulaz = Input::all();
+
+		if(isset($ulaz['novaKat'])) {
+			if(!empty($ulaz['novaKat'])) {
+				$t = new VPKat();
+				$t->naziv = $ulaz['novaKat'];
+				$t->save();
+			}
+		}
+		$this->ispisObavijesti("Nova kategorija je uspješno dodana!");
+		return $this->getPorukeGradjani();
+	}
 }

@@ -15,12 +15,8 @@ class ProfileEditorController extends BaseController {
 		$usr = Auth::user();
 
 		$validator = Validator::make(
-			array(
-				'email' => $ulaz['mail']
-			),
-			array(
-				'email' => 'required|email|unique:users'
-			)
+			array('email' => $ulaz['mail']),
+			array('email' => 'required|email|unique:users')
 		);
 
 		if($validator->fails()) {
@@ -31,6 +27,9 @@ class ProfileEditorController extends BaseController {
 		}
 
 		$usr->email = $ulaz['mail'];
+		
+		if(!empty($ulaz['funk']))
+			$usr->funkcija = $ulaz['funk'];
 
 		if(!empty($ulaz['pwd1'])) {
 			if($ulaz['pwd1'] == $ulaz['pwd2']) {
@@ -40,7 +39,6 @@ class ProfileEditorController extends BaseController {
 
 		$usr->save();
 		$this->ispisObavijesti('Podaci su uspješno promjenjeni!');
-			
 
 		return $this->getIndex();
 	}

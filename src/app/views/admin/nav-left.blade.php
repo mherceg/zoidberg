@@ -39,10 +39,10 @@
                                     <a href="{{url('/admin/poruke-administracija-posalji')}}">Pošalji novu poruku</a>
                                 </li>
                                 <li>
-                                    <a href="{{url('/admin/poruke-administracija')}}">Iz administracije</a>
+                                    <a href="{{url('/admin/poruke-administracija')}}">Poruke djelanika</a>
                                 </li>
                                 <li>
-                                    <a href="{{url('/admin/poruke-gradjani')}}">Od građana</a>
+                                    <a href="{{url('/admin/poruke-gradjani')}}">Poruke građana</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

@@ -31,11 +31,11 @@ class AddingFkeys extends Migration {
 			$table->foreign('sender_id')->references('id')->on('users');
 			$table->foreign('reciever_id')->references('id')->on('users');
 		});
-
+/*
 		Schema::table('vanjske_poruke', function($table) {
 			$table->foreign('reciever_id')->references('id')->on('users');
 			$table->foreign('kat_id')->references('id')->on('vp_kat');
-		});
+		});*/
 /*
 		Schema::table('direktoriji', function($table) {
 			$table->foreign('root')->references('id')->on('direktoriji')->onDelete('cascade');
