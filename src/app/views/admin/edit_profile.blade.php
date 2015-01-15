@@ -10,6 +10,10 @@
                                             <input class="form-control" value="{{Auth::user()->email}}" name="mail">
                                         </div>
                                         <div class="form-group">
+                                            <label>Funkcija</label>
+                                            <input class="form-control" value="{{Auth::user()->funkcija}}" name="funk">
+                                        </div>
+                                        <div class="form-group">
                                             <label>Loznika</label>
                                             <input class="form-control" value="" name="pwd1" type="password">
                                         </div>
