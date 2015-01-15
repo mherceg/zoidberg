@@ -28,20 +28,32 @@ class EventsController extends BaseController
         $prezime = Input::get('prezime');
         $email = Input::get('email');
         $oib = Input::get('oib');
+        try {
+            AkcijePrijave::insert(array(
+                'id_akcije' => $id_akcije,
+                'ime' => $ime,
+                'prezime' => $prezime,
+                'email' => $email,
+                'oib' => $oib,
+                'vrijeme' => time()
+            ));
+            $alert = array('title' => 'Prijava uspjela!', 'content' => 'Uspješno se se prijavili na akciju.');
 
-        AkcijePrijave::insert(array(
-            'id_akcije'=>$id_akcije,
-            'ime' => $ime,
-            'prezime' => $prezime,
-            'email' => $email,
-            'oib' => $oib,
-            'vrijeme' => time()
+        }
+        catch(Exception $e){
+            $alert = array('title' => 'Prijava nije uspjela!', 'content' => 'Već ste se prijavili na ovu akciju.');
+        }
+        View::share(array(
+            'alert' => $alert
         ));
+        return View::make('events.index', array('akcije' => Akcije::all()));
     }
 
-    public function getDetalji($id){
+    public function getDetalji($id)
+    {
         $akcija = Akcije::find($id);
-        return View::make('events.detalji', array('akcija' => $akcija));
+        $broj_prijavljenih = AkcijePrijave::where('id_akcije', '=', $id)->count();
+        return View::make('events.detalji', array('akcija' => $akcija, 'broj_prijavljenih' => $broj_prijavljenih));
     }
 
 }
