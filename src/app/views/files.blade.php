@@ -42,6 +42,57 @@
 
                     </div>
                 </section>
+
+                <section class="section">
+                    <div class="section-inner">
+                        <h6>Potraga za datotekom</h6>
+                        
+                        <div class="content">
+                            <form method="POST" action="{{url('dokumenti').'?fid='.$currF->id}}" accept-charset="UTF-8">
+       
+
+                            <div class="form-group">
+                                <label>Ime datoteke</label>
+                                <input class="form-control" value="@if(isset($pretrag)){{$pretrag}}@endif" name="pretrag">
+                            </div>
+                            
+                            <div class="form-group">
+                                <button class="btn btn-block btn-danger">Pretraži</button>
+                            </div>
+
+                            <br />
+                            </from>
+                        </div>
+
+                    </div>
+
+                    @if(isset($rezPret))
+                    <div class="section-inner">
+                        <h6>Rezultati</h6>
+                        @if($rezPret->isEmpty())
+                            <div class="content">
+                                Nema rezultata!
+                            </div>
+                        @else
+                        <div class="content">
+                            <ul>
+                                @foreach($rezPret as $r)
+                                <li>
+                                    <?php
+                                        $a = substr($r->lokacija, 8);
+
+                                        $a = (!empty($a)) ? ($a) : ('(korijenski_direktorij)');
+                                    ?>
+                                    <a href="#">{{$r->naziv}} ({{ $a }})</a>
+                                </li>
+                                @endforeach
+                            </ul>
+                        </div>
+                        @endif
+
+                    </div>
+                    @endif
+                </section>
 @stop
 
 @section('sidebar')
