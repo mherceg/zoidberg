@@ -9,10 +9,10 @@
                         <div class="content">
                             <ul>
                                 @foreach($djelatnici as $djel)
-                                    <li><strong>{{$djel->prezime}}, {{$djel->ime}}</strong>: {{$djel->dobijTituluTipa()}}, {{$djel->funkcija}}</li>
+                                    <li><a href="{{ url('pregled_djelatnika').'?uid='.$djel->id }}"><strong>{{$djel->prezime}}, {{$djel->ime}}</strong></a>: {{$djel->dobijTituluTipa()}}, {{$djel->funkcija}}</li>
                                 @endforeach
                             </ul>
-
+                        </div>
                     </div>
                 </section>
 @stop
