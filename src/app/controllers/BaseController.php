@@ -21,7 +21,7 @@ abstract class BaseController extends Controller {
         $poruke = null;
 
         if(Auth::check()) {
-        	$poruke = PrivatnePoruke::orderBy('vrijeme', 'desc')->take(3)->get();
+        	$poruke = PrivatnePoruke::where('reciever_id', '=', Auth::id())->orderBy('vrijeme', 'desc')->take(3)->get();
         }
 
         $data = array(

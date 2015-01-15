@@ -35,7 +35,7 @@ class EventsController extends BaseController
                 'prezime' => $prezime,
                 'email' => $email,
                 'oib' => $oib,
-                'vrijeme' => time()
+                'vrijeme' => new DateTime()
             ));
             $alert = array('title' => 'Prijava uspjela!', 'content' => 'Uspješno se se prijavili na akciju.');
 
