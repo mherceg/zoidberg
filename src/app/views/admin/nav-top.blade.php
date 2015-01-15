@@ -39,7 +39,7 @@
                     <ul class="dropdown-menu dropdown-user">
                         <li><a href="{{url('/home')}}"><i class="fa fa-home fa-fw"></i> Početna stranica</a>
                         </li>
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> Korisničke postavke</a>
+                        <li><a href="{{url('admin/profil')}}"><i class="fa fa-user fa-fw"></i> Korisničke postavke</a>
                         </li>
                         <li class="divider"></li>
                         <li><a href="{{url('/logout')}}"><i class="fa fa-sign-out fa-fw"></i> Odjava</a>

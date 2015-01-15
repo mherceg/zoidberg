@@ -11,7 +11,7 @@
 		<ul class="list">
 			<?php $evilCounter = 0; ?>
 			@foreach($pm_topbar as $p)
-			<li>{{$p->naslov}}</li>
+			<li>{{$p->naslov}} ({{$p->sender->prezime}}, {{$p->sender->ime}})</li>
 			<?php $evilCounter = $evilCounter +1;
 				if($evilCounter >= 10)
 					break;

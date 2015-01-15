@@ -50,7 +50,7 @@
                                             </select>
                                         </div>
                                     <div class="form-group">
-                                        <label>Akitivran</label>
+                                        <label>Aktiviran</label>
                                         <input class="form-control" type="checkbox" name="aktv"
                                         @if(isset($usr))
                                         @if($usr->aktiviran)

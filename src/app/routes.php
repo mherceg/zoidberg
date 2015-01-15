@@ -22,6 +22,7 @@ Route::controller('/pregled_djelatnika', 'ProfileViewController');
 Route::controller('/dokumenti', 'ViewFilesController');
 
 Route::controller('/admin/datoteke', 'FileController');
+Route::controller('/admin/profil', 'ProfileEditorController');
 Route::controller('/admin', 'AdminController');
 /*
 Route::get('/admin', function() {

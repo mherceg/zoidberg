@@ -13,9 +13,9 @@
                                 </a></li>
                                 <li><a href="{{ url('podaci') }}"><i class="fa fa-info-circle"></i> Podaci o ministarstvu</a></li>
                                 <li><a href="{{ url('popis_djelatnika') }}"><i class="fa fa-users"></i> Djelatnici ministarstva</a></li>
-                                <li><a href="{{ url('akcije') }}"><i class="fa fa-calendar"></i> Akcije</a></li>
-                                <li><a href="{{url('dokumenti')}}?fid=0"><i class="fa fa-folder"></i> Dokumenti</a></li>
                                 <li><a href="{{url('home/povijest')}}"><i class="fa fa-book"></i> Povijest ministarstva</a></li>
+                                <li><a href="{{url('dokumenti')}}?fid=0"><i class="fa fa-folder"></i> Dokumenti</a></li>
+                                <li><a href="{{ url('akcije') }}"><i class="fa fa-calendar"></i> Akcije</a></li>
                                 <li><a href="#"><i class="fa fa-envelope"></i> Kontakt</a></li>
                                 <hr class="divider" />
                                 @if(!Auth::check())
@@ -23,8 +23,8 @@
                                 @endif
 
                                 @if(Auth::check())
-                                <li><a href="#"><i class="fa fa-envelope-o"></i> Privatne poruke</a></li>
-                                <li><a href="#"><i class="fa fa-wrench"></i> Postavke korisničkog računa</a></li>
+                                <li><a href="{{url('admin/poruke-administracija')}}"><i class="fa fa-envelope-o"></i> Privatne poruke</a></li>
+                                <li><a href="{{url('admin/profil')}}"><i class="fa fa-wrench"></i> Postavke korisničkog računa</a></li>
                                 <li><a href="{{url('/admin')}}"><i class="fa fa-dashboard"></i> Administracijsko sučelje</a></li>
                                 <li><a href="{{url('logout')}}"><i class="fa fa-sign-out"></i> Odjava</a></li>
                                 @endif

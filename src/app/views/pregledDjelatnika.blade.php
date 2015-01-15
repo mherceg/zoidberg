@@ -3,7 +3,7 @@
 @section('mainbar')
                 <section class="section">
                     <div class="section-inner">
-                        <h2 class="heading"><strong>{{$djel->prezime}}, {{$djel->ime}}</strong>: {{$djel->dobijTituluTipa()}}, {{$djel->funkcija}}</h2>
+                        <h2 class="heading"><a href="{{url('popis_djelatnika')}}"><</a> <strong>{{$djel->prezime}}, {{$djel->ime}}</strong>: {{$djel->dobijTituluTipa()}}, {{$djel->funkcija}}</h2>
 
                         <div class="content text-center">
                             <p>Ime: <strong>{{$djel->ime}}</strong></p>
