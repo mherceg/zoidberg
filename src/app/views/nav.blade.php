@@ -16,7 +16,7 @@
                                 <li><a href="{{url('home/povijest')}}"><i class="fa fa-book"></i> Povijest ministarstva</a></li>
                                 <li><a href="{{url('dokumenti')}}?fid=0"><i class="fa fa-folder"></i> Dokumenti</a></li>
                                 <li><a href="{{ url('akcije') }}"><i class="fa fa-calendar"></i> Akcije</a></li>
-                                <li><a href="#"><i class="fa fa-envelope"></i> Kontakt</a></li>
+                                <li><a href="{{ url('kontakt') }}"><i class="fa fa-envelope"></i> Kontakt</a></li>
                                 <hr class="divider" />
                                 @if(!Auth::check())
                                 <li><a href="{{ url('login') }}"><i class="fa fa-sign-in"></i> Prijava</a></li>
