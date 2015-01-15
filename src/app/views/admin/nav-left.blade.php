@@ -78,19 +78,22 @@
                             </ul>
                         </li>
 
-                        @if(Auth::user()->dobijOvlast('usermod') == "da")
                         <li>
+                        @if(Auth::user()->dobijOvlast('usermod') == "da")
                             <a href="#"><i class="fa fa-wrench fa-fw"></i> Upravljanje korisnicima<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="{{url('/admin/korisnici-dodaj')}}">Dodavanje novih članova</a>
                                 </li>
                                 <li>
-                                    <a href="{{url('/admin/ovlasti')}}">Uređivanje ovlasti</a>
-                                </li>   
-                                <li>
                                     <a href="{{url('/admin/korisnici-uredi')}}">Uređivanje korisnika</a>
                                 </li>
+
+                                @if(Auth::user()->dobijOvlast('editovlast') == "da")
+                                <li>
+                                    <a href="{{url('/admin/ovlasti')}}">Uređivanje ovlasti</a>
+                                </li>
+                                @endif
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>

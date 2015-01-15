@@ -13,7 +13,9 @@
                             <p>Adresa e-pošte: <strong>{{$djel->email}}</strong></p>
                         </div>
                         <br />
-                        <button class="btn btn-block btn-danger">Kontaktiraj!</button>
+                        
+                            <a href="{{url('kontakt/spec').'?uid='.$djel->id}}"><button class="btn btn-block btn-danger">Kontaktiraj!</button></a>
+                        
                     </div>
                 </section>
 @stop

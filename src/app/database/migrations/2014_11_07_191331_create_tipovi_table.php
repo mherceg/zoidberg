@@ -14,7 +14,7 @@ class CreateTipoviTable extends Migration {
 	{
 		Schema::create('tipovi', function($table) {
 			$table->increments('id');
-			$table->integer('d_dozvola_def')->unsigned()->unique();
+			$table->integer('d_dozvola_def')->unsigned();
 			$table->string('naziv_tipa');
 			$table->string('titula');
 		});

@@ -4,6 +4,7 @@
                 <section class="section">
                     <div class="section-inner">
                         <h6>Trenutni direktorij</h6>
+            
                         <h2 class="heading">@if($currF->naziv == " "){{"(korijenski direktorij)"}}@else<a href="./dokumenti?fid={{$currF->root}}"><</a> {{$currF->naziv}}@endif</h2>
 
                         <div class="content">

@@ -9,7 +9,7 @@
                         <div class="content">
                             <ul>
                                 @foreach($djelatnici as $djel)
-                                    <li><a href="{{ url('pregled_djelatnika').'?uid='.$djel->id }}"><strong>{{$djel->prezime}}, {{$djel->ime}}</strong></a>: {{$djel->dobijTituluTipa()}}, {{$djel->funkcija}}</li>
+                                    <li><a href="{{ url('pregled_djelatnika').'?uid='.$djel->id }}"><strong>{{$djel->prezime}}, {{$djel->ime}}</strong></a>: {{$djel->funkcija}}</li>
                                 @endforeach
                             </ul>
                         </div>
