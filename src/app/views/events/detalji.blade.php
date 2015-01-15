@@ -10,8 +10,10 @@
                 Najviše posjetitelja: {{ $akcija->max_ljudi }} </br>
                 Do sad prijavljeno: {{ $broj_prijavljenih }}
             </div>
-            <a href="{{$url = action('EventsController@getPrijava', array('id_akcije'=>$akcija->id));}}">
-                <button class="btn btn-large btn-danger">Hoću i ja!</button>
+            <a
+                href="{{$url = action('EventsController@getPrijava', array('id_akcije'=>$akcija->id));}}"
+                class="btn btn-large btn-danger {{ $broj_prijavljenih < $akcija->max_ljudi ? "" : "disabled" }}">
+                Hoću i ja!
             </a>
         </section>
     </section>
