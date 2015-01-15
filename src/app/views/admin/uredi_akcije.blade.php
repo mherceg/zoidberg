@@ -32,7 +32,7 @@
                 </td>
 
                 <td>
-                    <a href="{{ action('AdminController@getAkcijeUredi', $akcija->id) }}">Uredi</a>
+                    <a href="{{ action('AdminController@getAkcijeDodaj') }}?id={{ $akcija->id }}">Uredi</a>
                 </td>
             </tr>
         @endforeach

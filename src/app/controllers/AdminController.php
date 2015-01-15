@@ -259,14 +259,6 @@ class AdminController extends BaseController {
 
 	public function getAkcijeUredi($actionId = null)
 	{
-		if($actionId == null) {
-			return $this->getAkcijeUrediList();
-		} else {
-			return $this->getAkcijeUrediDetail($actionId);
-		}
-	}
-
-	private function getAkcijeUrediList() {
 		View::share(array(
 			'akcije' => Akcije::all()
 		));
