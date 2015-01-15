@@ -7,11 +7,8 @@
 
                 <h2 class="heading">{{ $akcija->naziv }}</h2>
 
-                <div class="content">
-                    {{ $akcija->opis }}
-                </div>
-                <a href="{{$url = action('EventsController@getPrijava', array('id_akcije'=>$akcija->id));}}">
-                    <button class="btn btn-large btn-danger">Hoću i ja!</button>
+                <a href="{{$url = action('EventsController@getDetalji', array('id'=>$akcija->id));}}">
+                    <button class="btn btn-large btn-danger">Detalji</button>
                 </a>
             </section>
         </section>
