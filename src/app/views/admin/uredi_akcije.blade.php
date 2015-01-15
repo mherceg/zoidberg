@@ -20,8 +20,8 @@
             <tr>
                 <td>
                     {{$akcija['naziv']}}</td>
-                <td>{{substr($akcija['opis'], 0, 50)}}
-                    @if(strlen($akcija['opis'] > 50))
+                <td>{{mb_substr($akcija['opis'], 0, 50)}}
+                    @if(mb_strlen($akcija['opis'] > 50))
                         <br/>...
                     @endif
 
