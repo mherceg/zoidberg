@@ -36,4 +36,11 @@ class User extends Eloquent implements UserInterface {
     	return Tipovi::where('id', '=', $this->tip)->get()->first()->titula;
     }
 
+    public function dobijOvlast($modul) {
+    	$naziv = Tipovi::where('id', '=', $this->tip)->get()->first()->naziv_tipa;
+    	$a = Ovlasti::where('tip_id', '=', $this->tip)->where('modul', '=', $modul)->get();
+    	if($a->isEmpty()) return "ne";
+    	return Ovlasti::where('tip_id', '=', $this->tip)->where('modul', '=', $modul)->get()->first()->ovlast;
+    }
+
 }

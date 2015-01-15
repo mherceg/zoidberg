@@ -20,6 +20,7 @@
                             </ul>
                         </li>
                         
+                        @if(Auth::user()->dobijOvlast('editmin') == "da")
                         <li>
                             <a href="{{url('/admin/osnovnipodaci')}}"><i class="fa fa-info-circle fa-fw"></i> Uređivanje osnovnih podataka</a>
                            
@@ -29,7 +30,7 @@
                             <a href="{{url('/admin/povijest')}}"><i class="fa fa-book fa-fw"></i> Uređivanje povijesti</a>
                            
                         </li>
-
+                        @endif
 
 
                         <li>
@@ -41,12 +42,17 @@
                                 <li>
                                     <a href="{{url('/admin/poruke-administracija')}}">Poruke djelanika</a>
                                 </li>
+
+                                @if(Auth::user()->dobijOvlast('pubpm') == "da")
                                 <li>
                                     <a href="{{url('/admin/poruke-gradjani')}}">Poruke građana</a>
                                 </li>
+                                @endif
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
+
+                        @if(Auth::user()->dobijOvlast('akcije') == "da")
                         <li>
                             <a href="/admin/akcije"><i class="fa fa-calendar fa-fw"></i> Akcije<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
@@ -59,6 +65,7 @@
                                 </li>
                             </ul>
                         </li>
+                        @endif
                         <li>
                             <a href="#"><i class="fa fa-file-o fa-fw"></i> Dokumenti<span class="fa arrow"></a>
                             <ul class="nav nav-second-level">
@@ -70,6 +77,8 @@
                                 </li>
                             </ul>
                         </li>
+
+                        @if(Auth::user()->dobijOvlast('usermod') == "da")
                         <li>
                             <a href="#"><i class="fa fa-wrench fa-fw"></i> Upravljanje korisnicima<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
@@ -85,6 +94,7 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
+                        @endif
                         
                         
                     </ul>

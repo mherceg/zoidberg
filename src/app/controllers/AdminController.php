@@ -15,7 +15,7 @@ class AdminController extends BaseController {
 	}
 
     public function retrivePageTitle() {
-        return "Home";
+        return "Administracija";
     }
 
 	public function getDashboard()
@@ -29,6 +29,9 @@ class AdminController extends BaseController {
 
 	public function getOsnovnipodaci()
 	{
+		if(Auth::user()->dobijOvlast('editmin') != "da") {
+			return Redirect::to("admin/dashboard");
+		}
 		View::share(array(
 			'op' => OsnovniPodaci::first()
 		));
@@ -37,6 +40,9 @@ class AdminController extends BaseController {
 
 	public function postOsnovnipodaci()
 	{
+		if(Auth::user()->dobijOvlast('editmin') != "da") {
+			return Redirect::to("admin/dashboard");
+		}
 		$ulaz = Input::all();
 		//var_dump($a);
 
@@ -141,6 +147,11 @@ class AdminController extends BaseController {
 	}
 
 	public function getPovijest() {
+
+		if(Auth::user()->dobijOvlast('editmin') != "da") {
+			return Redirect::to("admin/dashboard");
+		}
+
 		$op = OsnovniPodaci::first();
 		View::share(array(
 			'povijest' => $op->povijest
@@ -149,6 +160,10 @@ class AdminController extends BaseController {
 	}
 
 	public function postPovijest() {
+
+		if(Auth::user()->dobijOvlast('editmin') != "da") {
+			return Redirect::to("admin/dashboard");
+		}
 		$op = OsnovniPodaci::first();
 		$ulaz = Input::all();
 		$op['povijest'] = $ulaz['povijest'];
@@ -259,6 +274,11 @@ class AdminController extends BaseController {
 
 	public function getAkcijeUredi($actionId = null)
 	{
+
+		if(Auth::user()->dobijOvlast('akcije') != "da") {
+			return Redirect::to("admin/dashboard");
+		}
+
 		View::share(array(
 			'akcije' => Akcije::all()
 		));
@@ -272,6 +292,9 @@ class AdminController extends BaseController {
 
 	public function getAkcijeDodaj()
 	{
+		if(Auth::user()->dobijOvlast('akcije') != "da") {
+			return Redirect::to("admin/dashboard");
+		}
 		$ulaz = Input::all();
 		$id = -1;
 		if(isset($ulaz['id']))
@@ -300,6 +323,9 @@ class AdminController extends BaseController {
 
 	public function postAkcijeDodaj()
 	{
+		if(Auth::user()->dobijOvlast('akcije') != "da") {
+			return Redirect::to("admin/dashboard");
+		}
 		$ulaz = Input::all();
 		$akcija = null;
 		if($ulaz['id'] != -1) {
@@ -329,6 +355,10 @@ class AdminController extends BaseController {
 
 	public function getKorisniciDodaj()
 	{
+
+		if(Auth::user()->dobijOvlast('usermod') != "da") {
+			return Redirect::to("admin/dashboard");
+		}
 		View::share(array(
 			'tpp' => Tipovi::all()
 		));
@@ -337,6 +367,10 @@ class AdminController extends BaseController {
 
 	public function postKorisniciDodaj()
 	{
+
+		if(Auth::user()->dobijOvlast('usermod') != "da") {
+			return Redirect::to("admin/dashboard");
+		}
 		$ulaz = Input::all();
 
 		if($ulaz['pwd1'] != $ulaz['pwd2']) {
@@ -371,10 +405,17 @@ class AdminController extends BaseController {
 
 	public function getOvlasti() 
 	{
+		if(Auth::user()->dobijOvlast('editovlast') != "da") {
+			return Redirect::to("admin/dashboard");
+		}
 		return View::make('admin.ovlasti');
 	}
 
 	public function postOvlasti() {
+
+		if(Auth::user()->dobijOvlast('editovlast') != "da") {
+			return Redirect::to("admin/dashboard");
+		}
 		$ulaz = Input::all();
 
 		if($ulaz['tip'] == 'sub') {
@@ -415,6 +456,10 @@ class AdminController extends BaseController {
 	}*/
 
 	public function getKorisniciUredi() {
+
+		if(Auth::user()->dobijOvlast('usermod') != "da") {
+			return Redirect::to("admin/dashboard");
+		}
 		$ulaz = Input::all();
 
 		$users = User::all();
@@ -444,6 +489,10 @@ class AdminController extends BaseController {
 
 
 	public function postKorisniciUredi() {
+
+		if(Auth::user()->dobijOvlast('usermod') != "da") {
+			return Redirect::to("admin/dashboard");
+		}
 		$ulaz = Input::all();
 
 
@@ -477,6 +526,10 @@ class AdminController extends BaseController {
 	}
 
 	public function getPorukeGradjani() {
+
+		if(Auth::user()->dobijOvlast('pubpm') != "da") {
+			return Redirect::to("admin/dashboard");
+		}
 		View::share(array(
 			'pmovi' => VanjskePoruke::take(50)->get()
 		));
@@ -484,6 +537,11 @@ class AdminController extends BaseController {
 	}
 
 	public function postPorukeGradjani() {
+
+		if(Auth::user()->dobijOvlast('pubpm') != "da") {
+			return Redirect::to("admin/dashboard");
+		}
+		
 		$ulaz = Input::all();
 
 		if(isset($ulaz['novaKat'])) {
