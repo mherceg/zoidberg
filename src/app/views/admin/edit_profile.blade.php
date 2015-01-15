@@ -3,11 +3,11 @@
 
 @section('body')
 							<h1 class="page-header">Uređivanje profila</h1>
-							<form method="POST" action="{{url('admin/korisnici-dodaj')}}" accept-charset="UTF-8" class="form-signup">
+							<form method="POST" action="{{url('admin/profil')}}" accept-charset="UTF-8" class="form-signup">
 
                                         <div class="form-group">
                                             <label>Email</label>
-                                            <input class="form-control" value="" name="mail">
+                                            <input class="form-control" value="{{Auth::user()->email}}" name="mail">
                                         </div>
                                         <div class="form-group">
                                             <label>Loznika</label>
