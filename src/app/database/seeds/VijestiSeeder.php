@@ -17,6 +17,7 @@ class VijestiSeeder extends \Illuminate\Database\Seeder
             'email' => 'default@ministarstvo.hr',
             'password' => Hash::make('ovonitkonecepogoditi'),
             'ime' => 'Difolto',
+            'oib' => 'default_oib_123',
             'prezime' => 'Difoltich',
             'tip' => 4,
             'funkcija' => 'Default',

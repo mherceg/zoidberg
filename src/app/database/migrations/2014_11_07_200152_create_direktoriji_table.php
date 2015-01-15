@@ -14,7 +14,7 @@ class CreateDirektorijiTable extends Migration {
 	{
 		Schema::create('direktoriji', function($table) {
 			$table->increments('id');
-			$table->integer('root')->unsigned();
+			$table->integer('root');
 			$table->string('naziv');
 		});
 	}

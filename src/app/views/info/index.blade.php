@@ -3,18 +3,16 @@
 @section('mainbar')
     <section class="section">
         <section class="section-inner">
-            <h1>Podaci o ministarstvu</h1>
-            <h2>Naziv ministarstva</h2>
+            <h6>Podaci o ministarstvu</h6>
+            <h3>Naziv ministarstva</h3>
             {{$podaci->naziv}}
-            <h2>Adresa</h2>
+            <h3>Adresa</h3>
             {{$podaci->adresa}}
-            <h2>Članovi uprave</h2>
-            //TODO clanovi uprave
-            <h2>Telefon</h2>
+            <h3>Telefon</h3>
             {{$podaci->telefon}}
-            <h2>E-mail</h2>
+            <h3>E-mail</h3>
             {{$podaci->email}}
-            <h2>Slika lokacije</h2>
+            <h3>Slika lokacije</h3>
             <img src="{{asset($podaci->slika_lokacija)}}" style = "width: 100%" >
         </section>
     </section>

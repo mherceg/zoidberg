@@ -2,49 +2,89 @@
 
 
 @section('body')
-							<h1 class="page-header">Dodavanje korisnika</h1>
-							<form method="POST" action="{{url('admin/korisnici-dodaj')}}" accept-charset="UTF-8" class="form-signup">
+                            <h1 class="page-header">Promjena informacija o korisniku</h1>
+
+
+
+                            <div style="
+                            @if(!isset($usr))    
+                            display: none;
+                            @endif">
+                                <h3 class="page-header">Uređivanje podataka</h3>
+                                <form method="POST" action="{{url('admin/korisnici-uredi')}}" accept-charset="UTF-8" class="form-signup">
        
-										<div class="form-group">
-                                            <label>Ime</label>
-                                            <input class="form-control" value="" name="ime">
-                                        </div>
-										<div class="form-group">
-                                            <label>Prezime</label>
-                                            <input class="form-control" value="" name="prezime">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>OIB</label>
-                                            <input class="form-control" value="" name="oib">
-                                        </div>
-										<div class="form-group">
-                                            <label>Funkcija</label>
-                                            <input class="form-control" value="" name="funkcija">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Email</label>
-                                            <input class="form-control" value="" name="mail">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Loznika</label>
-                                            <input class="form-control" value="" name="pwd1">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Potvrdi lozinku</label>
-                                            <input class="form-control" value="" name="pwd2">
-                                        </div>
-										<div class="form-group">
+                                    <div class="form-group">
+                                        <label>Ime</label>
+                                        <input class="form-control" value="@if(isset($usr)){{$usr->ime}}@endif" name="ime">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Prezime</label>
+                                        <input class="form-control" value="@if(isset($usr)){{$usr->prezime}}@endif" name="prez">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>OIB</label>
+                                        <input class="form-control" value="@if(isset($usr)){{$usr->oib}}@endif" name="oib">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Funkcija</label>
+                                        <input class="form-control" value="@if(isset($usr)){{$usr->funkcija}}@endif" name="funk">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Adresa e-pošte</label>
+                                        <input class="form-control" value="@if(isset($usr)){{$usr->email}}@endif" name="mail">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Razina datotečnog pristupa</label>
+                                        <input class="form-control" value="@if(isset($usr)){{$usr->d_dozvola}}@endif" name="ddoz">
+                                    </div>
+                                    <div class="form-group">
                                             <label>Uloga</label>
-                                            <select multiple="" class="form-control" name="uloga">
+                                            <select class="form-control" name="uloga">
                                                 @foreach($tpp as $r)
+                                                    @if(isset($usr))
+                                                    <option value="{{$r->id}}" @if($usr->tip == $r->id){{"selected"}}@endif>{{$r->titula}}</option>
+                                                    @else
                                                     <option value="{{$r->id}}">{{$r->titula}}</option>
+                                                    @endif
                                                 @endforeach
                                             </select>
                                         </div>
-                                        <div class="text-center">
-                                        <button type="submit" class="btn btn-large btn-danger btn-block">Spremi</button>
+                                    <div class="form-group">
+                                        <label>Akitivran</label>
+                                        <input class="form-control" type="checkbox" name="aktv"
+                                        @if(isset($usr))
+                                        @if($usr->aktiviran)
+                                        checked 
+                                        @endif
+                                        @endif
+                                        />
+                                    </div>
+
+                                    <div class="text-center">
+                                        <button type="submit" class="btn btn-large btn-danger btn-block ">Spremi</button>
+                                        <input type="hidden" value="@if(isset($usr)){{$usr->id}}@endif" name="userID" />
                                     </div>
                                 </form>
+                            </div>
+
+                            <h3 class="page-header">Odabir korisnika</h3>
+							<form method="GET" action="{{url('admin/korisnici-uredi')}}" accept-charset="UTF-8" class="form-signup">
+                            
+										<div class="form-group">
+
+                                            <select class="form-control" name="uid">
+                                                @foreach($kor as $kk)
+                                                <option value="{{$kk->id}}">{{$kk->prezime}}, {{$kk->ime}}</option>
+                                                @endforeach
+                                            </select>
+                                          </div>
+                                        <div class="text-center">
+                                        <button type="submit" class="btn btn-large btn-danger btn-block">Odaberi korisnika</button>
+                                    </div>
+                                </form>
+
+
+                                <br/>
 @stop
 
 

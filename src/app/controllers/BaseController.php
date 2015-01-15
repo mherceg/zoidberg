@@ -35,6 +35,12 @@ abstract class BaseController extends Controller {
         View::share($data);
     }
 
+    public function ispisObavijesti($por) {
+        View::share(array(
+            'poruka' => $por
+        ));
+    }
+
     abstract public function retrivePageTitle();
 
 }

@@ -63,3 +63,6 @@ dodana slika zgrade i opće informacije za ministarstvo
 
 ### 7.1.2015., R
 dodan dijagram razmještaja i ispitni scenariji
+
+### 15.1.2015, J
+dodani dijagram stanja i komunikacijski dijagram

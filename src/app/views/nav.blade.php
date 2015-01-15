@@ -12,9 +12,9 @@
 
                                 </a></li>
                                 <li><a href="{{ url('podaci') }}"><i class="fa fa-info-circle"></i> Podaci o ministarstvu</a></li>
-                                <li><a href="#"><i class="fa fa-users"></i> Djelatnici ministarstva</a></li>
-                                <li><a href="#"><i class="fa fa-calendar"></i> Događaji</a></li>
-                                <li><a href="#"><i class="fa fa-folder"></i> Dokumenti</a></li>
+                                <li><a href="{{ url('popis_djelatnika') }}"><i class="fa fa-users"></i> Djelatnici ministarstva</a></li>
+                                <li><a href="{{ url('akcije') }}"><i class="fa fa-calendar"></i> Akcije</a></li>
+                                <li><a href="{{url('dokumenti')}}?fid=0"><i class="fa fa-folder"></i> Dokumenti</a></li>
                                 <li><a href="{{url('home/povijest')}}"><i class="fa fa-book"></i> Povijest ministarstva</a></li>
                                 <li><a href="#"><i class="fa fa-envelope"></i> Kontakt</a></li>
                                 <hr class="divider" />
@@ -32,14 +32,15 @@
                         </div><!--//content-->
                     </div><!--//section-inner-->
                 </aside><!--//section-->
-                
+
                 <aside class="list aside section">
                     <div class="section-inner">
-                        <h2 class="heading">Događaji</h2>
+                        <h2 class="heading">Akcije</h2>
                         <div class="content">
                             <ul class="list-unstyled">
-                                <li><i class="fa fa-calendar"></i> <a href="https://pbs.twimg.com/media/BrrQG0rCcAAiwsv.jpg" target="_blank">Official "Can I speak to a manager"-haircut day</a></li>
-                                <li><i class="fa fa-calendar"></i> <a href="#">Kasno je, ponestaje mi mašte</a></li>
+                                @foreach($nav_akcije as $akcija)
+                                    <li><i class="fa fa-calendar"></i> <a href="{{action('EventsController@getDetalji', $akcija->id)}}" >{{ $akcija->naziv }}</a></li>
+                                @endforeach
                             </ul>
                         </div><!--//content-->
                     </div><!--//section-inner-->

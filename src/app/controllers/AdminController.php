@@ -20,6 +20,10 @@ class AdminController extends BaseController {
 
 	public function getDashboard()
 	{
+		View::share(array(
+			'eventi' => Akcije::orderBy('id', 'desc')->take(10)->get(),
+			'vijestiDash' => Vijesti::orderBy('datum', 'desc')->take(10)->get()
+		));
 		return View::make('admin.dashboard');
 	}
 
@@ -115,7 +119,7 @@ class AdminController extends BaseController {
 			$v->save();
 		}
 		$redir = '/admin/vijesti-dodaj?id='.$v->id;
-		return Redirect::to($redir);
+		return Redirect::to($redir)->with('poruka', "Vijest je uspješno spremljena!");
 	}
 
 	public function getObjavi()
@@ -266,7 +270,10 @@ class AdminController extends BaseController {
 		$ulaz = Input::all();
 
 		if($ulaz['pwd1'] != $ulaz['pwd2']) {
-			$this->ispisObavijesti('Dodan je novi korisnik!');
+			$this->ispisObavijesti('Lozinke nisu jednke!');
+		}
+		else if(empty($ulaz['mail']) || empty($ulaz['ime']) || empty($ulaz['prezime']) || empty($ulaz['pwd1']) || empty($ulaz['uloga']) || empty($ulaz['funkcija'] || empty($ulaz['oib']))) {
+			$this->ispisObavijesti("Sva polja je potrebno ispuniti!");
 		}
 		else {
 			$t = new User();
@@ -302,11 +309,21 @@ class AdminController extends BaseController {
 
 		if($ulaz['tip'] == 'sub') {
 			$t = new Ovlasti();
+			if(Tipovi::where('naziv_tipa', '=', $ulaz['ime'])->get()->isEmpty()) {
+				$this->ispisObavijesti('Ne postoji tip korisnika nad kojim se želi dodati ovlast!');
+				return $this->getOvlasti();
+			}
+
+			if(Ovlasti::where('tip_id', '=', Tipovi::where('naziv_tipa', '=', $ulaz['ime'])->first()->id)
+				->where('modul', '=', $ulaz['oznaka'])->count() > 0) {
+				$t = Ovlasti::where('tip_id', '=', Tipovi::where('naziv_tipa', '=', $ulaz['ime'])->first()->id)
+				->where('modul', '=', $ulaz['oznaka'])->get()->first();
+			} 
 			$t->tip_id = Tipovi::where('naziv_tipa', '=', $ulaz['ime'])->first()->id;
 			$t->modul = $ulaz['oznaka'];
 			$t->ovlast = $ulaz['ovlast'];
 			$t->save();
-			$this->ispisObavijesti('Ova ovlast je dodana!');
+			$this->ispisObavijesti('Ovlast je uspješno ažurirana!');
 		}
 		else if($ulaz['tip'] == 'nov') {
 			$noviTip = new Tipovi();
@@ -320,17 +337,21 @@ class AdminController extends BaseController {
 		}
 		return $this->getOvlasti();
 	}
-
+/*
 	private function ispisObavijesti($por) {
 		View::share(array(
 			'poruka' => $por
 		));
-	}
-
-	$usr[] = array();
+	}*/
 
 	public function getKorisniciUredi() {
 		$ulaz = Input::all();
+
+		$users = User::all();
+
+		View::share(array(
+			'tpp' => Tipovi::all()
+		));
 
 		if(isset($ulaz['uid'])) {
 			$usr = User::find($ulaz['uid']);
@@ -343,6 +364,44 @@ class AdminController extends BaseController {
 				$this->ispisObavijesti("Korisnik sa zadanim IDom ne postoji!");
 			}
 		}
+
+		View::share(array(
+			'kor' => $users
+		));
+
+		return View::make('admin.edit_user');
+	}
+
+
+	public function postKorisniciUredi() {
+		$ulaz = Input::all();
+
+
+		$aktivi = 0;
+		if(isset($ulaz['aktv'])) {
+			$aktivi = 1;
+		}
+
+		$t = User::find($ulaz['userID']);
+
+		$t->email = $ulaz['mail'];
+		$t->ime = $ulaz['ime'];
+		$t->prezime = $ulaz['prez'];
+		$t->funkcija = $ulaz['funk'];
+		$t->aktiviran = $aktivi;
+		$t->oib = $ulaz['oib'];
+		$t->d_dozvola = $ulaz['ddoz'];
+		$t->tip = $ulaz['uloga'];
+
+		$t->save();
+
+		$this->ispisObavijesti('Informacije su uspješno promjenjene!');
+
+		View::share(array(
+			'tpp' => Tipovi::all(),
+			'usr' => User::find($ulaz['userID']),
+			'kor' => User::all()
+		));
 
 		return View::make('admin.edit_user');
 	}
