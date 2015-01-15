@@ -68,7 +68,7 @@ class AdminController extends BaseController {
 		View::share(array(
 			'vijesti' => Auth::user()->news()->orderBy('datum', 'desc')->get()
 		));
-	
+
 		return View::make('admin.uredi_vijesti');
 	}
 
@@ -255,6 +255,84 @@ class AdminController extends BaseController {
         return Response::download($file, $naziv, $headers);
 
 		return $naziv;
+	}
+
+	public function getAkcijeUredi($actionId = null)
+	{
+		if($actionId == null) {
+			return $this->getAkcijeUrediList();
+		} else {
+			return $this->getAkcijeUrediDetail($actionId);
+		}
+	}
+
+	private function getAkcijeUrediList() {
+		View::share(array(
+			'akcije' => Akcije::all()
+		));
+
+		return View::make('admin.uredi_akcije');
+	}
+
+	private function getAkcijeUrediDetail($actionId) {
+		die("TODO: uredi akciju $actionId");
+	}
+
+	public function getAkcijeDodaj()
+	{
+		$ulaz = Input::all();
+		$id = -1;
+		if(isset($ulaz['id']))
+			$id = $ulaz['id'];
+
+		$akcija = Akcije::find($id);
+		if($akcija == null) {
+			View::share(array(
+				'naziv' => "",
+				'opis' => "",
+				'max_ljudi' => "",
+				'id' => -1
+			));
+		}
+		else {
+			View::share(array(
+				'naziv' => $akcija->naziv,
+				'opis' => $akcija->opis,
+				'max_ljudi' => $akcija->max_ljudi,
+				'id' => $akcija->id
+			));
+		}
+
+		return View::make('admin.editor_akcije');
+	}
+
+	public function postAkcijeDodaj()
+	{
+		$ulaz = Input::all();
+		$akcija = null;
+		if($ulaz['id'] != -1) {
+			$akcija = Akcije::find($ulaz['id']);
+			$akcija->naziv = $ulaz['naziv'];
+			$akcija->opis = $ulaz['opis'];
+			$akcija->max_ljudi = $ulaz['max_ljudi'];
+			$akcija->save();
+		}
+		else {
+			$akcija = new Akcije();
+			$akcija->naziv = $ulaz['naziv'];
+			$akcija->opis = $ulaz['opis'];
+			$akcija->max_ljudi = $ulaz['max_ljudi'];
+			$akcija->save();
+		}
+
+		$redir = '/admin/akcije-dodaj?id='.$akcija->id;
+		return Redirect::to($redir)->with('poruka', "Akcija je uspješno spremljena!");
+	}
+
+	public function getPrijave($id){
+		return View::make('admin.prijave', array(
+			'prijave' => Akcije::find($id)->prijavljeni
+		));
 	}
 
 	public function getKorisniciDodaj()

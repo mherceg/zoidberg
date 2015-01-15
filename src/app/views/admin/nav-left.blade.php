@@ -48,7 +48,16 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="tables.html"><i class="fa fa-calendar fa-fw"></i> Akcije</a>
+                            <a href="/admin/akcije"><i class="fa fa-calendar fa-fw"></i> Akcije<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{{ url('/admin/akcije-dodaj') }}">Dodaj novu akciju</a>
+                                </li>
+
+                                <li>
+                                    <a href="{{url('/admin/akcije-uredi')}}">Uređivanje akcija</a>
+                                </li>
+                            </ul>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-file-o fa-fw"></i> Dokumenti<span class="fa arrow"></a>
