@@ -9,11 +9,18 @@
                         <div class="content">
                             Datoteke:
                             <ul>
+                                <?php 
+                                $dirtyHack = 0;
+                                ?>
                                 @foreach($currF->files as $f)
                                     @if($f->potrebna_dozvola <= $ovlastUsera)
+                                    <?php $dirtyHack = 1; ?>
                                     <li><a href="./{{$f->lokacija.'/'.$f->naziv}}">{{$f->naziv}}</a></li>
                                     @endif
                                 @endforeach
+                                @if($dirtyHack == 0)
+                                    <li>Ne postoje datoteke u ovom direktoriju!</li>
+                                @endif
                             </ul>
 
                             Direktoriji:
