@@ -337,12 +337,12 @@ class AdminController extends BaseController {
 		}
 		return $this->getOvlasti();
 	}
-
+/*
 	private function ispisObavijesti($por) {
 		View::share(array(
 			'poruka' => $por
 		));
-	}
+	}*/
 
 	public function getKorisniciUredi() {
 		$ulaz = Input::all();
