@@ -16,6 +16,7 @@ Route::controller('/home', 'HomeController');
 Route::controller('/podaci', 'InfoController');
 Route::controller('/vijesti', 'NewsController');
 Route::controller('/akcije', 'EventsController');
+Route::controller('/popis_djelatnika', 'PopisController');
 
 Route::controller('/dokumenti', 'ViewFilesController');
 

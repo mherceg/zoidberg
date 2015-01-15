@@ -32,4 +32,8 @@ class User extends Eloquent implements UserInterface {
     	return $this->hasMany('PrivatnePoruke', 'reciever_id');
     }
 
+    public function dobijTituluTipa() {
+    	return Tipovi::where('id', '=', $this->tip)->get()->first()->titula;
+    }
+
 }
