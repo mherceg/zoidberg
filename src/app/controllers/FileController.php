@@ -84,7 +84,7 @@ class FileController extends BaseController {
 
 			$t->direktorij = $pid;
 			$t->naziv = $ime;
-			$t->lokacija = 'public/datoteke'.$path;
+			$t->lokacija = 'datoteke'.$path;
 			$t->potrebna_dozvola = $ulaz['tajnost'];
 			$t->save();
 

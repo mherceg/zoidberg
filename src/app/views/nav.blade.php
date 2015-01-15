@@ -14,7 +14,7 @@
                                 <li><a href="{{ url('podaci') }}"><i class="fa fa-info-circle"></i> Podaci o ministarstvu</a></li>
                                 <li><a href="#"><i class="fa fa-users"></i> Djelatnici ministarstva</a></li>
                                 <li><a href="{{ url('akcije') }}"><i class="fa fa-calendar"></i> Akcije</a></li>
-                                <li><a href="#"><i class="fa fa-folder"></i> Dokumenti</a></li>
+                                <li><a href="{{url('dokumenti')}}?fid=0"><i class="fa fa-folder"></i> Dokumenti</a></li>
                                 <li><a href="{{url('home/povijest')}}"><i class="fa fa-book"></i> Povijest ministarstva</a></li>
                                 <li><a href="#"><i class="fa fa-envelope"></i> Kontakt</a></li>
                                 <hr class="divider" />

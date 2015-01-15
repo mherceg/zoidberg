@@ -17,6 +17,8 @@ Route::controller('/podaci', 'InfoController');
 Route::controller('/vijesti', 'NewsController');
 Route::controller('/akcije', 'EventsController');
 
+Route::controller('/dokumenti', 'ViewFilesController');
+
 Route::controller('/admin/datoteke', 'FileController');
 Route::controller('/admin', 'AdminController');
 /*

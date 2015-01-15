@@ -33,4 +33,58 @@ class Direktoriji extends Eloquent {
 
 		return implode("/", $path);
 	}
+
+	public function djeca() {
+		return $this->hasMany('Direktoriji', 'root');
+	}
+
+	public function files() {
+		return $this->hasMany('Datoteke', 'direktorij');
+	}
+
+	public function shouldBeVisible() {
+
+		if($this->hasPublicFiles()) return true;
+		$fQ = array();
+		$i = 0;
+
+		$fQ[$i] = $this;
+		++$i;
+
+		//array_push($fQ, $this);
+
+		$j = 0;
+		while(count($fQ) > $j) {
+			//var_dump($fQ);
+			$cF = $fQ[$j];
+			//var_dump($cF);
+
+			$currID = $cF->id;
+			//var_dump($cF);
+
+			$djM = Direktoriji::where('root', '=', $currID)->get();
+			//$children = $cF->djeca;
+
+			if(!isset($djM)) continue;
+			$djM = $djM->toArray();
+
+			foreach($djM as $dj) {
+				$dir = Direktoriji::find($dj['id']);
+				if($dir == null) continue;
+				if($dir->hasPublicFiles()) return true;
+				
+				$fQ[$i] = $dir;
+				++$i;
+				//array_push($fQ, $dir->toArray());
+			}
+
+			++$j;
+		}
+
+		return false;
+	}
+
+	public function hasPublicFiles() {
+		return Datoteke::where('direktorij', '=', $this->id)->where('potrebna_dozvola', '=', 0)->count() > 0;
+	}
 }
