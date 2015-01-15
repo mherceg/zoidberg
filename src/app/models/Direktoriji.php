@@ -51,19 +51,13 @@ class Direktoriji extends Eloquent {
 		$fQ[$i] = $this;
 		++$i;
 
-		//array_push($fQ, $this);
-
 		$j = 0;
 		while(count($fQ) > $j) {
-			//var_dump($fQ);
 			$cF = $fQ[$j];
-			//var_dump($cF);
 
 			$currID = $cF->id;
-			//var_dump($cF);
 
 			$djM = Direktoriji::where('root', '=', $currID)->get();
-			//$children = $cF->djeca;
 
 			if(!isset($djM)) continue;
 			$djM = $djM->toArray();
@@ -75,7 +69,6 @@ class Direktoriji extends Eloquent {
 				
 				$fQ[$i] = $dir;
 				++$i;
-				//array_push($fQ, $dir->toArray());
 			}
 
 			++$j;

@@ -119,7 +119,7 @@ class AdminController extends BaseController {
 			$v->save();
 		}
 		$redir = '/admin/vijesti-dodaj?id='.$v->id;
-		return Redirect::to($redir);
+		return Redirect::to($redir)->with('poruka', "Vijest je uspješno spremljena!");
 	}
 
 	public function getObjavi()
