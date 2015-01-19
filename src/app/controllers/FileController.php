@@ -71,7 +71,7 @@ class FileController extends BaseController {
 		}
 		else {
 			$ime = $file->getClientOriginalName();
-			$file = $file->move('public/datoteke'.$path.'/', $ime);
+			$file = $file->move(public_path().'/datoteke'.$path.'/', $ime);
 
 			$t = new Datoteke();
 
