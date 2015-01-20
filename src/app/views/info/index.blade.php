@@ -12,9 +12,18 @@
             {{$podaci->telefon}}
             <h3>E-mail</h3>
             {{$podaci->email}}
+            <h3>Popis članova uprave</h3>
+	    <?php
+		$qwe = User::where('tip', '=', '5')->get();
+	     ?>
+	    <ul>
+		@foreach($qwe as $qq)
+               <li>{{$qq->prezime}}, {{$qq->ime}}</li>
+		@endforeach
+            </ul>
             <h3>Slika lokacije</h3>
             <img src="{{asset($podaci->slika_lokacija)}}" style = "width: 100%" >
-        </section>
+	</section>
     </section>
 @stop
 
